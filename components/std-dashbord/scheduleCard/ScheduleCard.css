@@ -1,0 +1,102 @@
+.scheduleCard {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  padding: 18px;
+  height: fit-content;
+}
+
+.scheduleHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
+.scheduleHeader svg {
+  font-size: 20px;
+  color: #111827;
+}
+
+.scheduleHeader h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.daysWrapper {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+}
+
+.dayBox {
+  height: 50px;
+  border: 1px solid #dbe3ec;
+  border-radius: 8px;
+  background: #fff;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  cursor: pointer;
+}
+
+.dayBox span {
+  font-size: 12px;
+  color: #374151;
+}
+
+.dayBox strong {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.dayBox.active {
+  background: #22c55e;
+  border-color: #22c55e;
+}
+
+.dayBox.active span,
+.dayBox.active strong {
+  color: white;
+}
+
+@media (max-width: 1200px) {
+  .daysWrapper {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .daysWrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 768px) {
+  .daysWrapper {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 580px) {
+  .scheduleCard {
+    padding: 15px;
+  }
+
+  .daysWrapper {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .dayBox {
+    height: 55px;
+  }
+
+  .scheduleHeader h3 {
+    font-size: 16px;
+  }
+}

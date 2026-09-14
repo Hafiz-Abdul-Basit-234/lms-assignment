@@ -1,0 +1,48 @@
+.quizCard{
+  background:#fff;
+  border-radius:20px;
+  padding:20px;
+  border:1px solid #e5e7eb;
+}
+
+.quizBox{
+  background:#eff6ff;
+  border-radius:14px;
+  padding:20px;
+}
+
+.quizBox h4{
+  margin-bottom:8px;
+}
+
+.quizBox p{
+  color:#64748b;
+  margin-bottom:15px;
+}
+
+.quizBox button{
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:10px;
+  background:#2563eb;
+  color:#fff;
+  cursor:pointer;
+}
+@media (max-width: 580px) {
+  .quizCard {
+    padding: 15px;
+  }
+
+  .quizBox {
+    padding: 15px;
+  }
+
+  .quizBox h4 {
+    font-size: 16px;
+  }
+
+  .quizBox p {
+    font-size: 14px;
+  }
+}

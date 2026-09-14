@@ -3,17 +3,28 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+body {
+    background-color: white;
+    height: 100%;
+    width: 100%;
+}
+.homeCard {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
 .homePage {
   min-height: 100vh;
   background: #f8fafc;
 }
 
-/* HERO */
+/* =====================
+   HERO SECTION
+===================== */
 
 .heroSection {
-  min-height: 55vh;
-  background: linear-gradient(135deg, #2563eb, #4f46e5, #7c3aed);
+  width: 100%;
+  padding: 60px 20px;
 
   display: flex;
   flex-direction: column;
@@ -21,14 +32,13 @@
   justify-content: center;
 
   text-align: center;
-  color: white;
 
-  padding: 40px 20px;
-  border-radius: 0 0 40px 40px;
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
 }
 
 .logo {
-  width: 140px;
+  width: 130px;
   height: auto;
   margin-bottom: 20px;
 }
@@ -36,40 +46,41 @@
 .heroSection h1 {
   font-size: 3.5rem;
   font-weight: 700;
+  color: #111827;
   margin-bottom: 15px;
 }
 
 .heroSection p {
   max-width: 700px;
+  color: #6b7280;
   font-size: 18px;
   line-height: 1.8;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
 }
 
 .heroSection button {
-  border: none;
-  background: white;
-  color: #2563eb;
-
   padding: 14px 35px;
-  border-radius: 50px;
-
+  border: none;
+  border-radius: 12px;
+  background: #2563eb;
+  color: white;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-
   transition: 0.3s;
 }
 
 .heroSection button:hover {
-  transform: translateY(-4px);
+  background: #1d4ed8;
 }
 
-/* CARDS */
+/* =====================
+   CARDS
+===================== */
 
 .homeCards {
   max-width: 1200px;
-  margin: -70px auto 60px;
+  margin: 60px auto;
   padding: 0 20px;
 
   display: grid;
@@ -79,35 +90,35 @@
 
 .homeCard {
   background: white;
-  border-radius: 24px;
-
+  border-radius: 20px;
   padding: 35px 25px;
   text-align: center;
 
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e5e7eb;
 
   transition: 0.3s;
 }
 
 .homeCard:hover {
   transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
 }
 
 .cardIcon {
-  width: 90px;
-  height: 90px;
+  width: 80px;
+  height: 80px;
 
   margin: auto;
 
-  border-radius: 50%;
-  background: #eef4ff;
+  border-radius: 20px;
+  background: #eff6ff;
+  color: #2563eb;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  color: #2563eb;
-  font-size: 40px;
+  font-size: 35px;
 }
 
 .homeCard h2 {
@@ -118,17 +129,19 @@
 
 .homeCard h3 {
   margin-top: 10px;
-  color: #2563eb;
   font-size: 24px;
+  color: #2563eb;
 }
 
 .homeCard p {
-  margin-top: 10px;
+  margin-top: 12px;
   color: #6b7280;
   line-height: 1.7;
 }
 
-/* TABLET */
+/* =====================
+   TABLET
+===================== */
 
 @media (max-width: 992px) {
   .homeCards {
@@ -140,11 +153,17 @@
   }
 }
 
-/* MOBILE */
+/* =====================
+   MOBILE
+===================== */
 
 @media (max-width: 768px) {
   .heroSection {
-    min-height: 45vh;
+    padding: 40px 20px;
+  }
+
+  .logo {
+    width: 90px;
   }
 
   .heroSection h1 {
@@ -155,12 +174,7 @@
     font-size: 15px;
   }
 
-  .logo {
-    width: 100px;
-  }
-
   .homeCards {
     grid-template-columns: 1fr;
-    margin-top: -40px;
   }
 }
