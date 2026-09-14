@@ -1,7 +1,6 @@
 .dashboardWrapper {
   display: flex;
   min-height: 100vh;
-  background: #f5f7fb;
 }
 
 .dashboardContent {
@@ -44,5 +43,41 @@
 @media (max-width: 768px) {
   .contentGrid {
     grid-template-columns: 1fr;
+  }
+}
+.bottomGrid {
+  margin-top: 20px;
+}
+@media (max-width: 350px) {
+  .dashboardContent {
+    padding: 10px;
+  }
+
+  .topGrid,
+  .middleGrid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .dashboardCards {
+    grid-template-columns: 1fr;
+  }
+
+  .courseTop {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .daysWrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .statCard,
+  .scheduleCard,
+  .activeCourse,
+  .quizCard {
+    min-width: 0;
+    width: 100%;
   }
 }

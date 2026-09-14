@@ -8,7 +8,7 @@ import DashboardCards from "@/components/std-dashbord/dashboardCards/DashboardCa
 import ScheduleCard from "@/components/std-dashbord/scheduleCard/ScheduleCard";
 import ActiveCourse from "@/components/std-dashbord/activeCourse/ActiveCourse";
 import QuizCard from "@/components/std-dashbord/quizCard/QuizCard";
-
+import FeeTable from "@/components/std-dashbord/feeTable/FeeTable";
 import "./page.css";
 
 export default function Page() {
@@ -37,6 +37,9 @@ export default function Page() {
           <ActiveCourse />
           <QuizCard />
         </div>
+        <div className="bottomGrid">
+  <FeeTable />
+</div>
       </main>
     </div>
   );
