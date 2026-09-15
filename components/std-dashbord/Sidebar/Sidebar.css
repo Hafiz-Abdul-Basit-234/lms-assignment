@@ -56,13 +56,12 @@
   border-radius: 14px;
   transition: 0.3s;
 }
-
-.menuItem:hover {
-  background: #f3f4f6;
+.menuItem:hover{
+    color:blue;
 }
 
+
 .menuItem.active {
-  background: #2563eb;
   color: #fff;
 }
 

@@ -48,12 +48,12 @@ export default function Sidebar({
         </div>
 
         <nav className="sidebarMenu">
-          <Link href="#" className="menuItem active">
+          <Link href="/student-dashboard" className="menuItem">
             <FiGrid />
             <span>Dashboard</span>
           </Link>
 
-          <Link href="#" className="menuItem">
+          <Link href="/student-dashboard/progress" className="menuItem">
             <FiBook />
             <span>Progress</span>
           </Link>
