@@ -1,0 +1,36 @@
+.attendanceOverview{
+  background:#fff;
+  border-radius:20px;
+  padding:25px;
+  border:1px solid #e5e7eb;
+  margin-bottom:20px;
+}
+
+.overviewTop{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:20px;
+}
+
+.overviewTop h2{
+  color:#16a34a;
+  font-size:42px;
+}
+
+.progressBar{
+  height:12px;
+  background:#e5e7eb;
+  border-radius:30px;
+}
+
+.progressFill{
+  width:85%;
+  height:100%;
+  background:#22c55e;
+  border-radius:30px;
+}
+
+
+
+
+

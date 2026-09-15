@@ -58,17 +58,17 @@ export default function Sidebar({
             <span>Progress</span>
           </Link>
 
-          <Link href="#" className="menuItem">
+          <Link href="/student-dashboard/attendance" className="menuItem">
             <FiCalendar />
             <span>Attendance</span>
           </Link>
 
-          <Link href="#" className="menuItem">
+          <Link href="/student-dashboard/payment" className="menuItem">
             <FiCreditCard />
             <span>Payment</span>
           </Link>
 
-          <Link href="#" className="menuItem">
+          <Link href="/student-dashboard/assignment" className="menuItem">
             <FiFileText />
             <span>Assignment</span>
           </Link>

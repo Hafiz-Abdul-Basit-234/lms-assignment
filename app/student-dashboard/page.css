@@ -1,83 +1,48 @@
-.dashboardWrapper {
-  display: flex;
-  min-height: 100vh;
+.dashboardWrapper{
+  display:flex;
+  min-height:100vh;
+  background:#f5f7fb;
+  overflow-x:hidden;
 }
 
-.dashboardContent {
-  flex: 1;
-  margin-left: 280px;
-  padding: 20px;
-  transition: all 0.3s ease;
+.dashboardContent{
+  flex:1;
+  margin-left:280px;
+  padding:20px;
+  width:100%;
+  max-width:100%;
+  overflow-x:hidden;
+  transition:.3s;
 }
 
-.dashboardContent.fullWidth {
-  margin-left: 0;
+.dashboardContent.fullWidth{
+  margin-left:0;
 }
 
-.topGrid {
-  display: grid;
-  grid-template-columns: 2fr 340px;
-  gap: 20px;
+.topGrid,
+.middleGrid{
+  display:grid;
+  grid-template-columns:2fr 340px;
+  gap:20px;
+  width:100%;
 }
 
-.middleGrid {
-  display: grid;
-  grid-template-columns: 2fr 340px;
-  gap: 20px;
-  margin-top: 20px;
-}
-
-@media (max-width: 1200px) {
+@media (max-width:1200px){
   .topGrid,
-  .middleGrid {
-    grid-template-columns: 1fr;
+  .middleGrid{
+    grid-template-columns:1fr;
   }
 }
 
-@media (max-width: 768px) {
-  .dashboardContent {
-    margin-left: 0;
-    padding: 15px;
+@media (max-width:768px){
+  .dashboardContent{
+    margin-left:0;
+    padding:15px;
   }
 }
-@media (max-width: 768px) {
-  .contentGrid {
-    grid-template-columns: 1fr;
-  }
-}
-.bottomGrid {
-  margin-top: 20px;
-}
-@media (max-width: 350px) {
-  .dashboardContent {
-    padding: 10px;
-  }
 
-  .topGrid,
-  .middleGrid {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  .dashboardCards {
-    grid-template-columns: 1fr;
-  }
-
-  .courseTop {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
-  .daysWrapper {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .statCard,
-  .scheduleCard,
-  .activeCourse,
-  .quizCard {
-    min-width: 0;
-    width: 100%;
+@media (max-width:576px){
+  .dashboardContent{
+    padding:12px;
   }
 }
