@@ -1,64 +1,392 @@
-.assignmentStats{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
-  margin-bottom:20px;
+/* =========================================================
+   PREMIUM ASSIGNMENT STATS
+   ========================================================= */
+
+.assignmentStats {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 20px;
+
+  margin-bottom: 20px;
 }
 
-.assignmentCard{
-  background:#fff;
-  border:1px solid #e5e7eb;
-  border-radius:18px;
-  padding:25px;
 
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+/* =========================================================
+   CARD
+   ========================================================= */
 
-  transition:.3s;
+.assignmentCard {
+  position: relative;
+
+  background: linear-gradient(
+    145deg,
+    #ffffff 0%,
+    #f8fafc 100%
+  );
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 18px;
+
+  padding: 25px;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 8px 24px rgba(15, 23, 42, 0.05),
+    0 3px 10px rgba(37, 99, 235, 0.025);
+
+  animation: assignmentCardIn 0.65s ease both;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
 }
 
-.assignmentCard:hover{
-  transform:translateY(-5px);
-  box-shadow:0 15px 30px rgba(0,0,0,.08);
+
+/* Premium top accent */
+
+.assignmentCard::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 3px;
+
+  background: linear-gradient(
+    90deg,
+    #2563eb,
+    #4f46e5,
+    #7c3aed
+  );
+
+  opacity: 0.75;
 }
 
-.assignmentCard h2{
-  font-size:40px;
-  margin-bottom:8px;
+
+/* Soft glow */
+
+.assignmentCard::after {
+  content: "";
+
+  position: absolute;
+
+  width: 130px;
+  height: 130px;
+
+  right: -70px;
+  top: -70px;
+
+  border-radius: 50%;
+
+  background: rgba(37, 99, 235, 0.06);
+
+  pointer-events: none;
+
+  transition:
+    transform 0.5s ease,
+    opacity 0.5s ease;
 }
 
-.iconBox{
-  width:60px;
-  height:60px;
-  border-radius:50%;
 
-  display:flex;
-  align-items:center;
-  justify-content:center;
+/* =========================================================
+   HOVER
+   ========================================================= */
+
+.assignmentCard:hover {
+  transform: translateY(-7px);
+
+  border-color: #bfdbfe;
+
+  box-shadow:
+    0 18px 40px rgba(15, 23, 42, 0.09),
+    0 8px 20px rgba(37, 99, 235, 0.07);
 }
 
-.iconBox svg{
-  font-size:28px;
+
+.assignmentCard:hover::after {
+  transform: scale(1.5);
+
+  opacity: 0.8;
 }
 
-.blue{
-  background:#dbeafe;
-  color:#2563eb;
+
+/* =========================================================
+   NUMBER
+   ========================================================= */
+
+.assignmentCard h2 {
+  position: relative;
+
+  z-index: 2;
+
+  font-size: 40px;
+
+  font-weight: 800;
+
+  line-height: 1;
+
+  letter-spacing: -1px;
+
+  color: #111827;
+
+  margin-bottom: 8px;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
 }
 
-.green{
-  background:#dcfce7;
-  color:#16a34a;
+
+.assignmentCard:hover h2 {
+  color: #2563eb;
+
+  transform: translateX(3px);
 }
 
-.yellow{
-  background:#fef3c7;
-  color:#d97706;
+
+/* =========================================================
+   ICON
+   ========================================================= */
+
+.iconBox {
+  position: relative;
+
+  z-index: 2;
+
+  width: 60px;
+  height: 60px;
+
+  border-radius: 17px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  box-shadow:
+    0 7px 18px rgba(15, 23, 42, 0.07);
+
+  transition:
+    transform 0.4s cubic-bezier(.2,.8,.2,1),
+    box-shadow 0.4s ease;
 }
 
-@media(max-width:900px){
-  .assignmentStats{
-    grid-template-columns:1fr;
+
+.assignmentCard:hover .iconBox {
+  transform:
+    scale(1.12)
+    rotate(5deg);
+
+  box-shadow:
+    0 12px 25px rgba(37, 99, 235, 0.14);
+}
+
+
+/* =========================================================
+   ICON
+   ========================================================= */
+
+.iconBox svg {
+  font-size: 28px;
+
+  transition:
+    transform 0.35s ease;
+}
+
+
+.assignmentCard:hover .iconBox svg {
+  transform: scale(1.12);
+}
+
+
+/* =========================================================
+   COLORS
+   ========================================================= */
+
+.blue {
+  background: linear-gradient(
+    135deg,
+    #dbeafe,
+    #bfdbfe
+  );
+
+  color: #2563eb;
+}
+
+
+.green {
+  background: linear-gradient(
+    135deg,
+    #dcfce7,
+    #bbf7d0
+  );
+
+  color: #16a34a;
+}
+
+
+.yellow {
+  background: linear-gradient(
+    135deg,
+    #fef3c7,
+    #fde68a
+  );
+
+  color: #d97706;
+}
+
+
+/* =========================================================
+   STAGGER ANIMATION
+   ========================================================= */
+
+.assignmentCard:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.assignmentCard:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.assignmentCard:nth-child(3) {
+  animation-delay: 0.25s;
+}
+
+
+/* =========================================================
+   TABLET / MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .assignmentStats {
+    grid-template-columns: 1fr;
+
+    gap: 15px;
   }
+
+  .assignmentCard {
+    padding: 21px;
+
+    border-radius: 17px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .assignmentCard {
+    padding: 18px;
+
+    min-height: 90px;
+  }
+
+  .assignmentCard h2 {
+    font-size: 32px;
+  }
+
+  .iconBox {
+    width: 52px;
+    height: 52px;
+
+    border-radius: 15px;
+  }
+
+  .iconBox svg {
+    font-size: 24px;
+  }
+
+}
+
+
+/* =========================================================
+   EXTRA SMALL
+   ========================================================= */
+
+@media (max-width: 350px) {
+
+  .assignmentCard {
+    padding: 16px;
+  }
+
+  .assignmentCard h2 {
+    font-size: 28px;
+  }
+
+  .iconBox {
+    width: 48px;
+    height: 48px;
+  }
+
+  .iconBox svg {
+    font-size: 21px;
+  }
+
+}
+
+
+/* =========================================================
+   ENTRANCE ANIMATION
+   ========================================================= */
+
+@keyframes assignmentCardIn {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(22px)
+      scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .assignmentCard {
+    animation: none !important;
+
+    transition: none !important;
+  }
+
+  .assignmentCard *,
+  .iconBox {
+    transition: none !important;
+  }
+
 }

@@ -5,6 +5,14 @@
   overflow: hidden;
   margin-top: 20px;
   box-shadow: 0 10px 25px rgba(0,0,0,.04);
+
+  animation: tableFadeUp .7s ease both;
+  transition: box-shadow .35s ease, border-color .35s ease;
+}
+
+.assignmentTable:hover {
+  border-color: #dbeafe;
+  box-shadow: 0 18px 40px rgba(37,99,235,.08);
 }
 
 .assignmentTable table {
@@ -13,7 +21,7 @@
 }
 
 .assignmentTable thead {
-  background: #f8fafc;
+  background: linear-gradient(135deg,#f8fafc,#f1f5f9);
 }
 
 .assignmentTable th {
@@ -30,20 +38,41 @@
   font-size: 16px;
   color: #111827;
   border-bottom: 1px solid #e5e7eb;
+
+  transition: background .3s ease, color .3s ease;
+}
+
+.assignmentTable tbody tr {
+  transition:
+    transform .3s ease,
+    background .3s ease,
+    box-shadow .3s ease;
 }
 
 .assignmentTable tbody tr:hover {
   background: #f8fafc;
+  transform: translateX(2px);
 }
 
 /* badges */
 
 .topicBadge {
-  background: #dbeafe;
+  background: linear-gradient(135deg,#dbeafe,#bfdbfe);
   color: #2563eb;
   padding: 6px 14px;
   border-radius: 20px;
   font-size: 13px;
+
+  display: inline-block;
+
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease;
+}
+
+.topicBadge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(37,99,235,.15);
 }
 
 .status {
@@ -51,20 +80,32 @@
   border-radius: 8px;
   font-size: 12px;
   font-weight: 600;
+
+  display: inline-block;
+
+  transition:
+    transform .3s ease,
+    box-shadow .3s ease;
+}
+
+.status:hover {
+  transform: translateY(-2px);
 }
 
 .approved {
-  background: #dcfce7;
+  background: linear-gradient(135deg,#dcfce7,#bbf7d0);
   color: #16a34a;
+  box-shadow: 0 4px 10px rgba(22,163,74,.08);
 }
 
 .submitted {
-  background: #dbeafe;
+  background: linear-gradient(135deg,#dbeafe,#bfdbfe);
   color: #2563eb;
+  box-shadow: 0 4px 10px rgba(37,99,235,.08);
 }
 
 .pending {
-  background: #f3f4f6;
+  background: linear-gradient(135deg,#f3f4f6,#e5e7eb);
   color: #374151;
 }
 
@@ -78,10 +119,17 @@
 
 .actionBtns svg {
   cursor: pointer;
+
+  transition:
+    transform .3s ease,
+    color .3s ease,
+    filter .3s ease;
 }
 
 .actionBtns svg:hover {
   color: #2563eb;
+  transform: translateY(-3px) scale(1.08);
+  filter: drop-shadow(0 4px 7px rgba(37,99,235,.2));
 }
 
 /* responsive */
@@ -95,6 +143,7 @@
 }
 
 /* Tablet */
+
 @media (max-width: 1024px) {
   .assignmentTable {
     overflow-x: auto;
@@ -117,14 +166,27 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
+
+    animation: mobileCardsIn .6s ease both;
   }
 
   .mobileAssignmentCard {
-    background: #fff;
+    background: linear-gradient(145deg,#fff,#f8fafc);
     border-radius: 20px;
     padding: 18px;
     box-shadow: 0 6px 20px rgba(0,0,0,0.05);
     border: 1px solid #e5e7eb;
+
+    transition:
+      transform .35s ease,
+      box-shadow .35s ease,
+      border-color .35s ease;
+  }
+
+  .mobileAssignmentCard:hover {
+    transform: translateY(-4px);
+    border-color: #bfdbfe;
+    box-shadow: 0 14px 30px rgba(37,99,235,.08);
   }
 
   .cardTop h3 {
@@ -175,9 +237,73 @@
     gap: 4px;
     font-size: 13px;
     color: #374151;
+
+    transition:
+      color .3s ease,
+      transform .3s ease;
+  }
+
+  .mobileAction:hover {
+    color: #2563eb;
+    transform: translateY(-2px);
   }
 
   .mobileAction svg {
     font-size: 18px;
+
+    transition:
+      transform .3s ease;
+  }
+
+  .mobileAction:hover svg {
+    transform: scale(1.12);
+  }
+}
+
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes tableFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes mobileCardsIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .assignmentTable,
+  .mobileAssignments {
+    animation: none !important;
+  }
+
+  .assignmentTable *,
+  .mobileAssignmentCard,
+  .mobileAction,
+  .actionBtns svg {
+    transition: none !important;
   }
 }
