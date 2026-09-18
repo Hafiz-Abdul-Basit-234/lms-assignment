@@ -24,17 +24,13 @@
 }
 
 .assignmentCard h2{
-  font-size:42px;
+  font-size:40px;
   margin-bottom:8px;
 }
 
-.assignmentCard p{
-  color:#64748b;
-}
-
 .iconBox{
-  width:65px;
-  height:65px;
+  width:60px;
+  height:60px;
   border-radius:50%;
 
   display:flex;
@@ -43,7 +39,7 @@
 }
 
 .iconBox svg{
-  font-size:30px;
+  font-size:28px;
 }
 
 .blue{

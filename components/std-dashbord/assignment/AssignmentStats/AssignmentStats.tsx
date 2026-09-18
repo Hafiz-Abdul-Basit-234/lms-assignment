@@ -1,80 +1,46 @@
-import "./AssignmentTable.css";
+import "./AssignmentStats.css";
+import {
+  FiFileText,
+  FiCheckCircle,
+  FiClock,
+} from "react-icons/fi";
 
-export default function AssignmentTable() {
-
-  const assignments = [
-    {
-      name: "Admin panel (E commerce Dashboard)",
-      topics: "7 Topics",
-      due: "September 10, 2026",
-      status: "APPROVED",
-    },
-    {
-      name: "QUICKSERVE WMA (Batch-20)",
-      topics: "No topics",
-      due: "August 30, 2026",
-      status: "NOT SUBMITTED",
-    },
-    {
-      name: "E-Commerce Website (React js)",
-      topics: "4 Topics",
-      due: "August 17, 2026",
-      status: "APPROVED",
-    },
-    {
-      name: "Furniture E-Commerce Website",
-      topics: "5 Topics",
-      due: "August 10, 2026",
-      status: "SUBMITTED",
-    },
-  ];
-
+export default function AssignmentStats() {
   return (
-    <div className="assignmentTable">
+    <div className="assignmentStats">
 
-      <table>
+      <div className="assignmentCard">
+        <div>
+          <h2>16</h2>
+          <p>Assigned</p>
+        </div>
 
-        <thead>
-          <tr>
-            <th>Assignment</th>
-            <th>Topics</th>
-            <th>Due Date</th>
-            <th>Status</th>
-            <th>Action</th>
-          </tr>
-        </thead>
+        <div className="iconBox blue">
+          <FiFileText />
+        </div>
+      </div>
 
-        <tbody>
+      <div className="assignmentCard">
+        <div>
+          <h2>14</h2>
+          <p>Submitted</p>
+        </div>
 
-          {assignments.map((item,index)=>(
-            <tr key={index}>
-              <td>{item.name}</td>
-              <td>{item.topics}</td>
-              <td>{item.due}</td>
+        <div className="iconBox green">
+          <FiCheckCircle />
+        </div>
+      </div>
 
-              <td>
-                <span
-                  className={`status ${
-                    item.status === "APPROVED"
-                      ? "approved"
-                      : item.status === "SUBMITTED"
-                      ? "submitted"
-                      : "pending"
-                  }`}
-                >
-                  {item.status}
-                </span>
-              </td>
+      <div className="assignmentCard">
+        <div>
+          <h2>2</h2>
+          <p>Pending</p>
+        </div>
 
-              <td>
-                👁️ 📤 ✏️
-              </td>
-            </tr>
-          ))}
-
-        </tbody>
-
-      </table>
+        <div className="iconBox yellow">
+          <FiClock />
+        </div>
+      </div>
 
     </div>
   );
