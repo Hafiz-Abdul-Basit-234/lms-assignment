@@ -73,7 +73,7 @@ export default function Sidebar({
             <span>Assignment</span>
           </Link>
 
-          <Link href="#" className="menuItem">
+          <Link href="/student-dashboard/quiz" className="menuItem">
             <FiEdit3 />
             <span>Quiz</span>
           </Link>

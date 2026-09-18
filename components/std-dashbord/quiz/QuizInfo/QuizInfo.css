@@ -1,0 +1,39 @@
+.quizInfo{
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:18px;
+  padding:25px;
+  margin-bottom:20px;
+}
+
+.quizTitle{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:15px;
+}
+
+.quizTitle svg{
+  font-size:22px;
+}
+
+.quizInfo ul{
+  padding-left:25px;
+}
+
+.quizInfo li{
+  margin-bottom:10px;
+  color:#64748b;
+}
+
+@media(max-width:768px){
+
+  .quizInfo{
+    padding:18px;
+  }
+
+  .quizInfo li{
+    font-size:14px;
+  }
+
+}
