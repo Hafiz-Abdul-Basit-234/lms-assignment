@@ -4,7 +4,7 @@ const quizzes = [
   {
     title: "Javascript (Quiz-4)",
     module: "Modern Front-End Development",
-    questions: 40,
+    questions: "40",
     attempts: "1 / 3",
     percentage: "85%",
     status: "PASSED",
@@ -12,7 +12,7 @@ const quizzes = [
   {
     title: "Javascript (Quiz-3)",
     module: "Modern Front-End Development",
-    questions: 40,
+    questions: "40",
     attempts: "1 / 3",
     percentage: "90%",
     status: "PASSED",
@@ -20,7 +20,7 @@ const quizzes = [
   {
     title: "Javascript (Quiz-2)",
     module: "Modern Front-End Development",
-    questions: 40,
+    questions: "40",
     attempts: "1 / 3",
     percentage: "83%",
     status: "PASSED",
@@ -28,17 +28,9 @@ const quizzes = [
   {
     title: "CSS Quiz",
     module: "Front-End Development",
-    questions: 40,
+    questions: "40",
     attempts: "1 / 3",
     percentage: "70%",
-    status: "PASSED",
-  },
-  {
-    title: "HTML Quiz",
-    module: "Web Designing",
-    questions: 40,
-    attempts: "1 / 3",
-    percentage: "83%",
     status: "PASSED",
   },
 ];
@@ -48,7 +40,8 @@ export default function QuizTable() {
     <div className="quizTable">
 
       {/* Desktop Table */}
-      <table>
+
+      <table className="desktopTable">
         <thead>
           <tr>
             <th>Title</th>
@@ -66,22 +59,27 @@ export default function QuizTable() {
             <tr key={index}>
               <td>{quiz.title}</td>
               <td>{quiz.module}</td>
+
               <td>
                 <span className="badge">
                   {quiz.questions}
                 </span>
               </td>
+
               <td>
                 <span className="badge">
                   {quiz.attempts}
                 </span>
               </td>
+
               <td>{quiz.percentage}</td>
+
               <td>
                 <span className="passed">
                   {quiz.status}
                 </span>
               </td>
+
               <td>
                 <button className="completeBtn">
                   Completed
@@ -93,35 +91,51 @@ export default function QuizTable() {
       </table>
 
       {/* Mobile Cards */}
+
       <div className="mobileQuizWrapper">
+
         {quizzes.map((quiz, index) => (
+
           <div className="mobileQuizCard" key={index}>
 
-            <div className="quizTop">
+            <div className="quizHeader">
+
               <h3>{quiz.title}</h3>
 
               <span className="passed">
                 {quiz.status}
               </span>
+
             </div>
 
-            <p>{quiz.module}</p>
+            <p className="moduleName">
+              {quiz.module}
+            </p>
 
-            <div className="quizGrid">
+            <div className="quizInfo">
 
-              <div>
+              <div className="infoBox">
                 <span>Questions</span>
-                <strong>{quiz.questions}</strong>
+
+                <div className="badge">
+                  {quiz.questions}
+                </div>
               </div>
 
-              <div>
+              <div className="infoBox">
                 <span>Percentage</span>
-                <strong>{quiz.percentage}</strong>
+
+                <strong>
+                  {quiz.percentage}
+                </strong>
               </div>
 
-              <div>
+              <div className="infoBox">
                 <span>Attempts</span>
-                <strong>{quiz.attempts}</strong>
+
+                <div className="badge">
+                  {quiz.attempts}
+                </div>
               </div>
 
             </div>
@@ -131,7 +145,9 @@ export default function QuizTable() {
             </button>
 
           </div>
+
         ))}
+
       </div>
 
     </div>
