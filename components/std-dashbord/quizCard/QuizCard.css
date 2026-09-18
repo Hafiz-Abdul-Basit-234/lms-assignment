@@ -1,48 +1,465 @@
-.quizCard{
-  background:#fff;
-  border-radius:20px;
-  padding:20px;
-  border:1px solid #e5e7eb;
+/* =========================================================
+   PREMIUM QUIZ CARD
+   ========================================================= */
+
+.quizCard {
+  position: relative;
+
+  width: 100%;
+
+  padding: 22px;
+
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.97),
+      rgba(248, 250, 252, 0.94)
+    );
+
+  border: 1px solid rgba(226, 232, 240, 0.9);
+
+  box-shadow:
+    0 12px 35px rgba(15, 23, 42, 0.07),
+    0 4px 12px rgba(37, 99, 235, 0.03);
+
+  overflow: hidden;
+
+  animation: quizCardAppear 0.7s ease both;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
 }
 
-.quizBox{
-  background:#eff6ff;
-  border-radius:14px;
-  padding:20px;
+
+/* Top gradient line */
+
+.quizCard::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 3px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #2563eb,
+      #4f46e5,
+      #7c3aed
+    );
 }
 
-.quizBox h4{
-  margin-bottom:8px;
+
+/* Background glow */
+
+.quizCard::after {
+  content: "";
+
+  position: absolute;
+
+  width: 170px;
+  height: 170px;
+
+  right: -100px;
+  top: -100px;
+
+  border-radius: 50%;
+
+  background: rgba(37, 99, 235, 0.09);
+
+  filter: blur(4px);
+
+  pointer-events: none;
 }
 
-.quizBox p{
-  color:#64748b;
-  margin-bottom:15px;
+
+/* Card hover */
+
+.quizCard:hover {
+  transform: translateY(-5px);
+
+  border-color: rgba(147, 197, 253, 0.65);
+
+  box-shadow:
+    0 20px 45px rgba(15, 23, 42, 0.10),
+    0 10px 25px rgba(37, 99, 235, 0.06);
 }
 
-.quizBox button{
-  width:100%;
-  padding:12px;
-  border:none;
-  border-radius:10px;
-  background:#2563eb;
-  color:#fff;
-  cursor:pointer;
+
+/* =========================================================
+   QUIZ BOX
+   ========================================================= */
+
+.quizBox {
+  position: relative;
+
+  padding: 22px;
+
+  border-radius: 17px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eff6ff 0%,
+      #e0edff 55%,
+      #eef2ff 100%
+    );
+
+  border: 1px solid rgba(191, 219, 254, 0.65);
+
+  overflow: hidden;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.8),
+    0 8px 20px rgba(37, 99, 235, 0.05);
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
 }
-@media (max-width: 580px) {
+
+
+/* Quiz box glow */
+
+.quizBox::before {
+  content: "";
+
+  position: absolute;
+
+  width: 100px;
+  height: 100px;
+
+  right: -45px;
+  bottom: -50px;
+
+  border-radius: 50%;
+
+  background: rgba(99, 102, 241, 0.13);
+
+  filter: blur(2px);
+
+  pointer-events: none;
+}
+
+
+/* Quiz box shine */
+
+.quizBox::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -120%;
+
+  width: 65%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.5),
+      transparent
+    );
+
+  transform: skewX(-20deg);
+
+  transition: left 0.7s ease;
+
+  pointer-events: none;
+}
+
+
+.quizCard:hover .quizBox {
+  transform: translateY(-2px);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.9),
+    0 12px 28px rgba(37, 99, 235, 0.08);
+}
+
+
+.quizCard:hover .quizBox::after {
+  left: 150%;
+}
+
+
+/* =========================================================
+   QUIZ TITLE
+   ========================================================= */
+
+.quizBox h4 {
+  position: relative;
+  z-index: 2;
+
+  margin: 0 0 9px;
+
+  color: #111827;
+
+  font-size: 18px;
+
+  font-weight: 750;
+
+  letter-spacing: -0.2px;
+}
+
+
+/* =========================================================
+   QUIZ DESCRIPTION
+   ========================================================= */
+
+.quizBox p {
+  position: relative;
+  z-index: 2;
+
+  margin: 0 0 18px;
+
+  color: #64748b;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   QUIZ BUTTON
+   ========================================================= */
+
+.quizBox button {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+
+  min-height: 48px;
+
+  padding: 12px 18px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb 0%,
+      #3b82f6 45%,
+      #4f46e5 100%
+    );
+
+  color: #ffffff;
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.2px;
+
+  cursor: pointer;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 9px 22px rgba(37, 99, 235, 0.23);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    filter 0.3s ease;
+}
+
+
+/* Button shine */
+
+.quizBox button::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -120%;
+
+  width: 65%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.38),
+      transparent
+    );
+
+  transform: skewX(-20deg);
+
+  transition: left 0.65s ease;
+}
+
+
+.quizBox button:hover {
+  transform: translateY(-3px);
+
+  filter: brightness(1.05);
+
+  box-shadow:
+    0 14px 30px rgba(37, 99, 235, 0.32);
+}
+
+
+.quizBox button:hover::before {
+  left: 150%;
+}
+
+
+.quizBox button:active {
+  transform: translateY(-1px) scale(0.99);
+
+  box-shadow:
+    0 7px 16px rgba(37, 99, 235, 0.22);
+}
+
+
+/* =========================================================
+   ENTRANCE ANIMATION
+   ========================================================= */
+
+@keyframes quizCardAppear {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(25px)
+      scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 768px) {
+
   .quizCard {
-    padding: 15px;
+    padding: 19px;
+
+    border-radius: 20px;
   }
 
   .quizBox {
+    padding: 19px;
+
+    border-radius: 16px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 580px) {
+
+  .quizCard {
     padding: 15px;
+
+    border-radius: 18px;
+  }
+
+  .quizBox {
+    padding: 16px;
+
+    border-radius: 14px;
   }
 
   .quizBox h4 {
     font-size: 16px;
+
+    margin-bottom: 7px;
   }
 
   .quizBox p {
-    font-size: 14px;
+    font-size: 13px;
+
+    line-height: 1.55;
+
+    margin-bottom: 15px;
   }
+
+  .quizBox button {
+    min-height: 46px;
+
+    padding: 11px;
+
+    font-size: 13px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+  .quizCard {
+    padding: 13px;
+  }
+
+  .quizBox {
+    padding: 14px;
+  }
+
+  .quizBox h4 {
+    font-size: 15px;
+  }
+
+  .quizBox p {
+    font-size: 12px;
+  }
+
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .quizCard,
+  .quizBox,
+  .quizBox button {
+    animation: none !important;
+
+    transition: none !important;
+  }
+
 }

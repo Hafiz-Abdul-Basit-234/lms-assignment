@@ -1,113 +1,528 @@
-.paymentTable{
-  background:#fff;
-  border-radius:20px;
-  overflow:hidden;
-  border:1px solid #e5e7eb;
-  width:100%;
+/* =========================================================
+   PREMIUM PAYMENT TABLE
+   ========================================================= */
+
+.paymentTable {
+  position: relative;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #f8fafc
+    );
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  border: 1px solid #e2e8f0;
+
+  width: 100%;
+
+  box-shadow:
+    0 10px 30px rgba(15, 23, 42, 0.06),
+    0 3px 10px rgba(37, 99, 235, 0.03);
+
+  animation: paymentTableIn 0.7s ease both;
+
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-.paymentTable table{
-  width:100%;
-  border-collapse:collapse;
+
+.paymentTable:hover {
+  border-color: #cbd5e1;
+
+  box-shadow:
+    0 18px 40px rgba(15, 23, 42, 0.09),
+    0 8px 20px rgba(37, 99, 235, 0.04);
 }
+
+
+/* =========================================================
+   TOP ACCENT
+   ========================================================= */
+
+.paymentTable::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 3px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #2563eb,
+      #4f46e5,
+      #7c3aed
+    );
+
+  z-index: 3;
+}
+
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+
+.paymentTable table {
+  width: 100%;
+
+  border-collapse: collapse;
+}
+
+
+/* =========================================================
+   CELLS
+   ========================================================= */
 
 .paymentTable th,
-.paymentTable td{
-  padding:18px;
-  text-align:left;
-  border-bottom:1px solid #e5e7eb;
-  white-space:nowrap;
+.paymentTable td {
+  padding: 18px;
+
+  text-align: left;
+
+  border-bottom: 1px solid #edf1f5;
+
+  white-space: nowrap;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
 }
 
-.paymentTable th{
-  background:#f8fafc;
-  font-weight:600;
+
+/* =========================================================
+   TABLE HEADER
+   ========================================================= */
+
+.paymentTable th {
+  position: relative;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f8fafc,
+      #f1f5f9
+    );
+
+  color: #64748b;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.2px;
 }
 
-.copyBtn{
-  width:40px;
-  height:40px;
-  border:none;
-  border-radius:10px;
-  background:#f3f4f6;
-  cursor:pointer;
-  transition:.3s;
+
+/* Header accent */
+
+.paymentTable th::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #2563eb,
+      #4f46e5,
+      transparent
+    );
+
+  opacity: 0.55;
 }
 
-.copyBtn:hover{
-  background:#e5e7eb;
+
+/* =========================================================
+   TABLE ROW
+   ========================================================= */
+
+.paymentTable tbody tr {
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease;
 }
 
-.paid{
-  background:#dcfce7;
-  color:#16a34a;
-  padding:6px 12px;
-  border-radius:20px;
-  font-size:13px;
+
+.paymentTable tbody tr:hover {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(37, 99, 235, 0.035),
+      rgba(79, 70, 229, 0.015)
+    );
+
+  transform: translateX(3px);
 }
 
-.pending{
-  background:#fef3c7;
-  color:#d97706;
-  padding:6px 12px;
-  border-radius:20px;
-  font-size:13px;
+
+.paymentTable tbody tr:last-child td {
+  border-bottom: none;
 }
 
-/* Laptop */
 
-@media (max-width:1200px){
-  .paymentTable{
-    overflow-x:auto;
+/* =========================================================
+   COPY BUTTON
+   ========================================================= */
+
+.copyBtn {
+  position: relative;
+
+  width: 40px;
+  height: 40px;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 11px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f8fafc,
+      #eef2f7
+    );
+
+  color: #475569;
+
+  cursor: pointer;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 3px 8px rgba(15, 23, 42, 0.04);
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+
+.copyBtn:hover {
+  transform:
+    translateY(-3px)
+    scale(1.04);
+
+  background:
+    linear-gradient(
+      135deg,
+      #eff6ff,
+      #dbeafe
+    );
+
+  border-color: #bfdbfe;
+
+  color: #2563eb;
+
+  box-shadow:
+    0 8px 17px rgba(37, 99, 235, 0.13);
+}
+
+
+.copyBtn:active {
+  transform: scale(0.95);
+}
+
+
+/* =========================================================
+   PAID BADGE
+   ========================================================= */
+
+.paid {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      #dcfce7,
+      #bbf7d0
+    );
+
+  color: #15803d;
+
+  padding: 6px 13px;
+
+  border: 1px solid #86efac;
+
+  border-radius: 20px;
+
+  font-size: 13px;
+
+  font-weight: 650;
+
+  box-shadow:
+    0 4px 10px rgba(34, 197, 94, 0.10);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+.paid:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 7px 15px rgba(34, 197, 94, 0.17);
+}
+
+
+/* =========================================================
+   PENDING BADGE
+   ========================================================= */
+
+.pending {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fef3c7,
+      #fde68a
+    );
+
+  color: #b45309;
+
+  padding: 6px 13px;
+
+  border: 1px solid #fcd34d;
+
+  border-radius: 20px;
+
+  font-size: 13px;
+
+  font-weight: 650;
+
+  box-shadow:
+    0 4px 10px rgba(245, 158, 11, 0.10);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+.pending:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 7px 15px rgba(245, 158, 11, 0.17);
+}
+
+
+/* =========================================================
+   LAPTOP
+   ========================================================= */
+
+@media (max-width: 1200px) {
+
+  .paymentTable {
+    overflow-x: auto;
+
+    scrollbar-width: thin;
+
+    scrollbar-color:
+      #cbd5e1
+      #f8fafc;
   }
 
-  .paymentTable table{
-    min-width:950px;
+
+  .paymentTable::-webkit-scrollbar {
+    height: 7px;
   }
+
+
+  .paymentTable::-webkit-scrollbar-track {
+    background: #f8fafc;
+  }
+
+
+  .paymentTable::-webkit-scrollbar-thumb {
+    background:
+      linear-gradient(
+        90deg,
+        #94a3b8,
+        #64748b
+      );
+
+    border-radius: 10px;
+  }
+
+
+  .paymentTable table {
+    min-width: 950px;
+  }
+
 }
 
-/* Tablet */
 
-@media (max-width:768px){
-  .paymentTable{
-    border-radius:16px;
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .paymentTable {
+    border-radius: 16px;
   }
 
-  .paymentTable table{
-    min-width:850px;
+
+  .paymentTable table {
+    min-width: 850px;
   }
+
 
   .paymentTable th,
-  .paymentTable td{
-    padding:14px;
-    font-size:14px;
+  .paymentTable td {
+    padding: 14px;
+
+    font-size: 14px;
   }
+
+
+  .paymentTable th {
+    font-size: 12px;
+  }
+
 }
 
-/* Mobile */
 
-@media (max-width:576px){
-  .paymentTable table{
-    min-width:750px;
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 576px) {
+
+  .paymentTable {
+    border-radius: 15px;
   }
+
+
+  .paymentTable table {
+    min-width: 750px;
+  }
+
 
   .paymentTable th,
-  .paymentTable td{
-    padding:12px;
-    font-size:13px;
+  .paymentTable td {
+    padding: 12px;
+
+    font-size: 13px;
   }
 
-  .copyBtn{
-    width:34px;
-    height:34px;
+
+  .copyBtn {
+    width: 34px;
+    height: 34px;
+
+    border-radius: 9px;
   }
+
+
+  .paid,
+  .pending {
+    padding: 5px 10px;
+
+    font-size: 12px;
+  }
+
 }
 
-/* Small Mobile */
 
-@media (max-width:350px){
-  .paymentTable table{
-    min-width:700px;
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 350px) {
+
+  .paymentTable table {
+    min-width: 700px;
   }
+
+
+  .paymentTable th,
+  .paymentTable td {
+    padding: 11px;
+
+    font-size: 12px;
+  }
+
 }
 
+
+/* =========================================================
+   ENTRANCE ANIMATION
+   ========================================================= */
+
+@keyframes paymentTableIn {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(22px)
+      scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .paymentTable {
+    animation: none !important;
+  }
+
+
+  .paymentTable *,
+  .copyBtn,
+  .paid,
+  .pending {
+    transition: none !important;
+  }
+
+}
+.paymentTable {
+  overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE/Edge */
+}
+
+.paymentTable::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}

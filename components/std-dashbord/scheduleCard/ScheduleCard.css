@@ -1,102 +1,592 @@
+/* =========================================================
+   PREMIUM SCHEDULE CARD
+   ========================================================= */
+
 .scheduleCard {
-  background: #fff;
-  border: 1px solid #e5e7eb;
-  border-radius: 18px;
-  padding: 18px;
-  height: fit-content;
+  position: relative;
+
+  width: 100%;
+
+  padding: 22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.96),
+      rgba(248, 250, 252, 0.92)
+    );
+
+  border: 1px solid rgba(226, 232, 240, 0.9);
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 12px 35px rgba(15, 23, 42, 0.07),
+    0 3px 10px rgba(37, 99, 235, 0.03);
+
+  overflow: hidden;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+
+  animation: scheduleAppear 0.7s ease both;
 }
+
+
+/* Subtle top gradient */
+
+.scheduleCard::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 3px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #2563eb,
+      #3b82f6,
+      #4f46e5,
+      #7c3aed
+    );
+}
+
+
+/* Soft background glow */
+
+.scheduleCard::after {
+  content: "";
+
+  position: absolute;
+
+  width: 160px;
+  height: 160px;
+
+  right: -100px;
+  top: -100px;
+
+  border-radius: 50%;
+
+  background: rgba(37, 99, 235, 0.08);
+
+  filter: blur(3px);
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
 
 .scheduleHeader {
+  position: relative;
+  z-index: 2;
+
   display: flex;
+
   align-items: center;
-  gap: 10px;
-  margin-bottom: 18px;
+
+  gap: 11px;
+
+  margin-bottom: 20px;
 }
+
+
+/* Icon container */
 
 .scheduleHeader svg {
+  width: 40px;
+  height: 40px;
+
+  padding: 9px;
+
+  flex-shrink: 0;
+
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eff6ff,
+      #dbeafe
+    );
+
+  color: #2563eb;
+
   font-size: 20px;
-  color: #111827;
+
+  box-shadow:
+    0 6px 15px rgba(37, 99, 235, 0.10);
+
+  transition:
+    transform 0.35s ease,
+    background 0.35s ease,
+    color 0.35s ease;
 }
+
+
+.scheduleCard:hover .scheduleHeader svg {
+  transform:
+    scale(1.08)
+    rotate(-5deg);
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #4f46e5
+    );
+
+  color: #ffffff;
+}
+
 
 .scheduleHeader h3 {
-  font-size: 18px;
-  font-weight: 600;
+  margin: 0;
+
+  font-size: 19px;
+
+  font-weight: 750;
+
+  letter-spacing: -0.2px;
+
   color: #111827;
 }
+
+
+/* =========================================================
+   DAYS WRAPPER
+   ========================================================= */
 
 .daysWrapper {
+  position: relative;
+  z-index: 2;
+
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 8px;
+
+  grid-template-columns:
+    repeat(7, minmax(0, 1fr));
+
+  gap: 9px;
 }
+
+
+/* =========================================================
+   DAY BOX
+   ========================================================= */
 
 .dayBox {
-  height: 50px;
-  border: 1px solid #dbe3ec;
-  border-radius: 8px;
-  background: #fff;
+  position: relative;
+
+  height: 66px;
 
   display: flex;
+
   flex-direction: column;
+
   justify-content: center;
+
   align-items: center;
 
+  gap: 3px;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #f8fafc
+    );
+
   cursor: pointer;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.3s cubic-bezier(.2,.8,.2,1),
+    border-color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
 }
+
+
+/* Day shine */
+
+.dayBox::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -120%;
+
+  width: 70%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255,255,255,0.55),
+      transparent
+    );
+
+  transform: skewX(-20deg);
+
+  transition: left 0.6s ease;
+
+  pointer-events: none;
+}
+
+
+/* Hover */
+
+.dayBox:hover {
+  transform: translateY(-5px);
+
+  border-color: #bfdbfe;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 10px 22px rgba(37, 99, 235, 0.10);
+}
+
+
+.dayBox:hover::before {
+  left: 150%;
+}
+
+
+/* =========================================================
+   DAY TEXT
+   ========================================================= */
 
 .dayBox span {
-  font-size: 12px;
-  color: #374151;
+  position: relative;
+  z-index: 2;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.3px;
+
+  color: #64748b;
+
+  text-transform: uppercase;
+
+  transition: color 0.3s ease;
 }
+
 
 .dayBox strong {
-  font-size: 15px;
-  font-weight: 600;
-  color: #111827;
+  position: relative;
+  z-index: 2;
+
+  font-size: 18px;
+
+  line-height: 1;
+
+  font-weight: 800;
+
+  color: #1e293b;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
 }
 
-.dayBox.active {
-  background: #22c55e;
-  border-color: #22c55e;
+
+.dayBox:hover strong {
+  color: #2563eb;
+
+  transform: scale(1.08);
 }
+
+
+/* =========================================================
+   ACTIVE DAY
+   ========================================================= */
+
+.dayBox.active {
+  border-color: transparent;
+
+  background:
+    linear-gradient(
+      145deg,
+      #22c55e 0%,
+      #16a34a 55%,
+      #15803d 100%
+    );
+
+  box-shadow:
+    0 9px 22px rgba(34, 197, 94, 0.24);
+
+  transform: translateY(-1px);
+}
+
+
+/* Active glow */
+
+.dayBox.active::after {
+  content: "";
+
+  position: absolute;
+
+  width: 60px;
+  height: 60px;
+
+  top: -30px;
+  right: -25px;
+
+  border-radius: 50%;
+
+  background: rgba(255,255,255,0.15);
+
+  filter: blur(1px);
+}
+
+
+/* Active text */
 
 .dayBox.active span,
 .dayBox.active strong {
-  color: white;
+  color: #ffffff;
 }
+
+
+.dayBox.active strong {
+  transform: scale(1.05);
+}
+
+
+/* Active hover */
+
+.dayBox.active:hover {
+  transform:
+    translateY(-6px)
+    scale(1.03);
+
+  background:
+    linear-gradient(
+      145deg,
+      #16a34a,
+      #15803d,
+      #166534
+    );
+
+  box-shadow:
+    0 15px 30px rgba(34, 197, 94, 0.30);
+}
+
+
+.dayBox.active:hover strong {
+  color: #ffffff;
+
+  transform: scale(1.12);
+}
+
+
+/* =========================================================
+   CARD HOVER
+   ========================================================= */
+
+.scheduleCard:hover {
+  border-color: rgba(147, 197, 253, 0.55);
+
+  box-shadow:
+    0 18px 45px rgba(15, 23, 42, 0.09),
+    0 8px 25px rgba(37, 99, 235, 0.05);
+}
+
+
+/* =========================================================
+   ANIMATION
+   ========================================================= */
+
+@keyframes scheduleAppear {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(25px)
+      scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
 
 @media (max-width: 1200px) {
+
   .daysWrapper {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns:
+      repeat(4, minmax(0, 1fr));
   }
+
 }
 
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
 @media (max-width: 768px) {
-  .daysWrapper {
-    grid-template-columns: repeat(3, 1fr);
+
+  .scheduleCard {
+    padding: 19px;
+
+    border-radius: 20px;
   }
-}
-@media (max-width: 768px) {
-  .daysWrapper {
-    grid-template-columns: repeat(3, 1fr);
+
+
+  .scheduleHeader {
+    margin-bottom: 17px;
   }
+
+
+  .scheduleHeader h3 {
+    font-size: 17px;
+  }
+
+
+  .scheduleHeader svg {
+    width: 38px;
+    height: 38px;
+
+    padding: 8px;
+  }
+
+
+  .daysWrapper {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+
+    gap: 9px;
+  }
+
+
+  .dayBox {
+    height: 62px;
+  }
+
 }
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
 
 @media (max-width: 580px) {
+
   .scheduleCard {
-    padding: 15px;
+    padding: 16px;
+
+    border-radius: 18px;
   }
 
+
   .daysWrapper {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
     gap: 10px;
   }
 
+
   .dayBox {
-    height: 55px;
+    height: 60px;
+
+    border-radius: 13px;
   }
+
+
+  .dayBox span {
+    font-size: 10px;
+  }
+
+
+  .dayBox strong {
+    font-size: 17px;
+  }
+
 
   .scheduleHeader h3 {
     font-size: 16px;
   }
+
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+  .scheduleCard {
+    padding: 14px;
+  }
+
+
+  .daysWrapper {
+    gap: 8px;
+  }
+
+
+  .dayBox {
+    height: 56px;
+  }
+
+
+  .scheduleHeader svg {
+    width: 35px;
+    height: 35px;
+  }
+
+
+  .scheduleHeader h3 {
+    font-size: 15px;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .scheduleCard,
+  .scheduleHeader svg,
+  .dayBox,
+  .dayBox strong {
+    animation: none !important;
+
+    transition: none !important;
+  }
+
 }

@@ -1,190 +1,792 @@
-.quizTable{
-  background:#fff;
-  border-radius:20px;
-  overflow:hidden;
-  border:1px solid #e5e7eb;
+/* =========================================================
+   PREMIUM QUIZ TABLE
+   ========================================================= */
+
+.quizTable {
+  position: relative;
+
+  background: rgba(255, 255, 255, 0.96);
+
+  border-radius: 20px;
+
+  overflow: hidden;
+
+  border: 1px solid #e2e8f0;
+
+  box-shadow:
+    0 10px 30px rgba(15, 23, 42, 0.06),
+    0 3px 10px rgba(37, 99, 235, 0.03);
+
+  animation: quizTableIn 0.7s ease both;
+
+  transition:
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
 }
 
-/* =========================
-   Desktop Table
-========================= */
+.quizTable:hover {
+  border-color: #cbd5e1;
 
-.quizTable table{
-  width:100%;
-  border-collapse:collapse;
+  box-shadow:
+    0 18px 40px rgba(15, 23, 42, 0.08),
+    0 8px 20px rgba(37, 99, 235, 0.04);
 }
+
+
+/* =========================================================
+   DESKTOP TABLE
+   ========================================================= */
+
+.quizTable table {
+  width: 100%;
+
+  border-collapse: collapse;
+}
+
+
+/* TABLE CELLS */
 
 .quizTable th,
-.quizTable td{
-  padding:18px;
-  text-align:left;
-  border-bottom:1px solid #e5e7eb;
+.quizTable td {
+  padding: 18px;
+
+  text-align: left;
+
+  border-bottom: 1px solid #edf1f5;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
 }
 
-.quizTable th{
-  background:#f8fafc;
-  color:#64748b;
-  font-weight:600;
+
+/* TABLE HEADER */
+
+.quizTable th {
+  position: relative;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f8fafc,
+      #f1f5f9
+    );
+
+  color: #64748b;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.2px;
 }
 
-.quizTable .badge{
-  display:inline-block;
-  background:#f3f4f6;
-  padding:6px 12px;
-  border-radius:8px;
-  font-size:14px;
-  font-weight:600;
+
+/* Header bottom line */
+
+.quizTable th::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #2563eb,
+      #4f46e5,
+      transparent
+    );
+
+  opacity: 0.6;
 }
 
-.quizTable .passed{
-  background:#dcfce7;
-  color:#16a34a;
-  border:1px solid #86efac;
-  padding:5px 12px;
-  border-radius:8px;
-  font-size:12px;
-  font-weight:600;
+
+/* TABLE ROW */
+
+.quizTable tbody tr {
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-.quizTable .completeBtn{
-  border:none;
-  background:#9bb5f5;
-  color:#fff;
-  padding:10px 18px;
-  border-radius:10px;
-  cursor:pointer;
-  font-weight:600;
+
+/* Row hover */
+
+.quizTable tbody tr:hover {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(37, 99, 235, 0.035),
+      rgba(99, 102, 241, 0.015)
+    );
+
+  transform: translateX(3px);
 }
 
-.quizTable .completeBtn:hover{
-  opacity:.9;
+
+.quizTable tbody tr:last-child td {
+  border-bottom: none;
 }
 
-/* =========================
-   Mobile Hidden
-========================= */
 
-.mobileQuizWrapper{
-  display:none;
+/* =========================================================
+   BADGE
+   ========================================================= */
+
+.quizTable .badge {
+  display: inline-block;
+
+  background:
+    linear-gradient(
+      135deg,
+      #f8fafc,
+      #eef2f7
+    );
+
+  color: #475569;
+
+  padding: 6px 12px;
+
+  border-radius: 9px;
+
+  border: 1px solid #e2e8f0;
+
+  font-size: 13px;
+
+  font-weight: 650;
+
+  box-shadow:
+    0 3px 8px rgba(15, 23, 42, 0.04);
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
-/* =========================
-   Mobile UI
-========================= */
 
-@media (max-width:868px){
+.quizTable .badge:hover {
+  transform: translateY(-2px);
 
-  .quizTable{
-    background:transparent;
-    border:none;
+  background: #ffffff;
+
+  box-shadow:
+    0 6px 14px rgba(15, 23, 42, 0.08);
+}
+
+
+/* =========================================================
+   PASSED BADGE
+   ========================================================= */
+
+.quizTable .passed {
+  display: inline-block;
+
+  background:
+    linear-gradient(
+      135deg,
+      #dcfce7,
+      #bbf7d0
+    );
+
+  color: #15803d;
+
+  border: 1px solid #86efac;
+
+  padding: 5px 12px;
+
+  border-radius: 9px;
+
+  font-size: 12px;
+
+  font-weight: 700;
+
+  box-shadow:
+    0 4px 10px rgba(34, 197, 94, 0.10);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+
+.quizTable .passed:hover {
+  transform: translateY(-2px) scale(1.03);
+
+  box-shadow:
+    0 7px 15px rgba(34, 197, 94, 0.18);
+}
+
+
+/* =========================================================
+   COMPLETE BUTTON
+   ========================================================= */
+
+.quizTable .completeBtn {
+  position: relative;
+
+  border: none;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #3b82f6,
+      #4f46e5
+    );
+
+  color: #fff;
+
+  padding: 10px 18px;
+
+  border-radius: 10px;
+
+  cursor: pointer;
+
+  font-family: inherit;
+
+  font-size: 13px;
+
+  font-weight: 650;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 7px 18px rgba(37, 99, 235, 0.20);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    filter 0.3s ease;
+}
+
+
+/* Button shine */
+
+.quizTable .completeBtn::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -120%;
+
+  width: 65%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.35),
+      transparent
+    );
+
+  transform: skewX(-20deg);
+
+  transition: left 0.65s ease;
+}
+
+
+.quizTable .completeBtn:hover {
+  transform: translateY(-3px);
+
+  filter: brightness(1.05);
+
+  box-shadow:
+    0 12px 25px rgba(37, 99, 235, 0.28);
+}
+
+
+.quizTable .completeBtn:hover::before {
+  left: 150%;
+}
+
+
+.quizTable .completeBtn:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+
+/* =========================================================
+   MOBILE HIDDEN
+   ========================================================= */
+
+.mobileQuizWrapper {
+  display: none;
+}
+
+
+/* =========================================================
+   MOBILE UI
+   ========================================================= */
+
+@media (max-width: 868px) {
+
+  .quizTable {
+    background: transparent;
+
+    border: none;
+
+    box-shadow: none;
+
+    overflow: visible;
   }
 
-  .desktopTable{
-    display:none;
+
+  .quizTable:hover {
+    border-color: transparent;
+
+    box-shadow: none;
   }
 
-  .mobileQuizWrapper{
-    display:flex;
-    flex-direction:column;
-    gap:15px;
+
+  .desktopTable {
+    display: none;
   }
 
-  .mobileQuizCard{
-    background:#fff;
-    border:1px solid #e5e7eb;
-    border-radius:16px;
-    padding:20px;
-    box-shadow:0 4px 12px rgba(0,0,0,.05);
+
+  .mobileQuizWrapper {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 15px;
   }
 
-  .quizHeader{
-    display:flex;
-    justify-content:space-between;
-    align-items:flex-start;
-    gap:12px;
-    margin-bottom:10px;
+
+  /* MOBILE CARD */
+
+  .mobileQuizCard {
+    position: relative;
+
+    background:
+      linear-gradient(
+        145deg,
+        #ffffff,
+        #f8fafc
+      );
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 18px;
+
+    padding: 20px;
+
+    box-shadow:
+      0 8px 25px rgba(15, 23, 42, 0.06);
+
+    overflow: hidden;
+
+    animation: mobileCardIn 0.6s ease both;
+
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease,
+      border-color 0.3s ease;
   }
 
-  .quizHeader h3{
-    font-size:18px;
-    font-weight:700;
-    color:#111827;
-    line-height:1.4;
-    flex:1;
+
+  /* Stagger animation */
+
+  .mobileQuizCard:nth-child(1) {
+    animation-delay: 0.05s;
   }
 
-  .moduleName{
-    color:#6b7280;
-    font-size:14px;
-    margin-bottom:20px;
+  .mobileQuizCard:nth-child(2) {
+    animation-delay: 0.12s;
   }
 
-  .quizInfo{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:22px;
-    margin-bottom:20px;
+  .mobileQuizCard:nth-child(3) {
+    animation-delay: 0.19s;
   }
 
-  .infoBox{
-    display:flex;
-    flex-direction:column;
+  .mobileQuizCard:nth-child(4) {
+    animation-delay: 0.26s;
   }
 
-  .infoBox span{
-    font-size:13px;
-    color:#6b7280;
-    margin-bottom:10px;
+  .mobileQuizCard:nth-child(5) {
+    animation-delay: 0.33s;
   }
 
-  .infoBox strong{
-    font-size:18px;
-    color:#111827;
-    font-weight:700;
+
+  /* Card top accent */
+
+  .mobileQuizCard::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 3px;
+
+    background:
+      linear-gradient(
+        90deg,
+        #2563eb,
+        #4f46e5,
+        #7c3aed
+      );
   }
 
-  .mobileBtn{
-    width:100%;
-    height:48px;
-    border:none;
-    border-radius:10px;
-    background:#9bb5f5;
-    color:#fff;
-    font-size:16px;
-    font-weight:600;
-    cursor:pointer;
+
+  .mobileQuizCard:hover {
+    transform: translateY(-5px);
+
+    border-color: #bfdbfe;
+
+    box-shadow:
+      0 15px 35px rgba(15, 23, 42, 0.09),
+      0 7px 20px rgba(37, 99, 235, 0.05);
+  }
+
+
+  /* =====================================================
+     QUIZ HEADER
+     ===================================================== */
+
+  .quizHeader {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    gap: 12px;
+
+    margin-bottom: 10px;
+  }
+
+
+  .quizHeader h3 {
+    font-size: 18px;
+
+    font-weight: 750;
+
+    color: #111827;
+
+    line-height: 1.4;
+
+    flex: 1;
+
+    transition: color 0.3s ease;
+  }
+
+
+  .mobileQuizCard:hover .quizHeader h3 {
+    color: #2563eb;
+  }
+
+
+  /* =====================================================
+     MODULE NAME
+     ===================================================== */
+
+  .moduleName {
+    color: #6b7280;
+
+    font-size: 14px;
+
+    margin-bottom: 20px;
+
+    line-height: 1.5;
+  }
+
+
+  /* =====================================================
+     QUIZ INFO
+     ===================================================== */
+
+  .quizInfo {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 22px;
+
+    margin-bottom: 20px;
+  }
+
+
+  .infoBox {
+    display: flex;
+
+    flex-direction: column;
+
+    padding: 11px 12px;
+
+    border-radius: 11px;
+
+    background: #f8fafc;
+
+    border: 1px solid #eef2f7;
+
+    transition:
+      background 0.3s ease,
+      transform 0.3s ease,
+      border-color 0.3s ease;
+  }
+
+
+  .infoBox:hover {
+    background: #ffffff;
+
+    border-color: #dbeafe;
+
+    transform: translateY(-2px);
+  }
+
+
+  .infoBox span {
+    font-size: 13px;
+
+    color: #6b7280;
+
+    margin-bottom: 7px;
+  }
+
+
+  .infoBox strong {
+    font-size: 18px;
+
+    color: #111827;
+
+    font-weight: 750;
+  }
+
+
+  /* =====================================================
+     MOBILE BUTTON
+     ===================================================== */
+
+  .mobileBtn {
+    position: relative;
+
+    width: 100%;
+
+    height: 48px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    background:
+      linear-gradient(
+        135deg,
+        #2563eb,
+        #3b82f6,
+        #4f46e5
+      );
+
+    color: #fff;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    font-weight: 650;
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    box-shadow:
+      0 8px 20px rgba(37, 99, 235, 0.22);
+
+    transition:
+      transform 0.3s ease,
+      box-shadow 0.3s ease,
+      filter 0.3s ease;
+  }
+
+
+  /* Button shine */
+
+  .mobileBtn::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+    left: -120%;
+
+    width: 65%;
+    height: 100%;
+
+    background:
+      linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,0.35),
+        transparent
+      );
+
+    transform: skewX(-20deg);
+
+    transition: left 0.65s ease;
+  }
+
+
+  .mobileBtn:hover {
+    transform: translateY(-3px);
+
+    filter: brightness(1.05);
+
+    box-shadow:
+      0 13px 28px rgba(37, 99, 235, 0.30);
+  }
+
+
+  .mobileBtn:hover::before {
+    left: 150%;
+  }
+
+
+  .mobileBtn:active {
+    transform: scale(0.98);
   }
 }
 
-/* =========================
-   Small Mobile
-========================= */
 
-@media (max-width:480px){
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
 
-  .mobileQuizCard{
-    padding:16px;
+@media (max-width: 480px) {
+
+  .mobileQuizWrapper {
+    gap: 12px;
   }
 
-  .quizHeader h3{
-    font-size:16px;
+
+  .mobileQuizCard {
+    padding: 16px;
+
+    border-radius: 16px;
   }
 
-  .moduleName{
-    font-size:13px;
+
+  .quizHeader h3 {
+    font-size: 16px;
   }
 
-  .quizInfo{
-    grid-template-columns:1fr 1fr;
-    gap:18px;
+
+  .moduleName {
+    font-size: 13px;
+
+    margin-bottom: 16px;
   }
 
-  .infoBox strong{
-    font-size:16px;
+
+  .quizInfo {
+    grid-template-columns: 1fr 1fr;
+
+    gap: 12px;
+
+    margin-bottom: 17px;
   }
 
-  .mobileBtn{
-    height:45px;
-    font-size:15px;
+
+  .infoBox {
+    padding: 10px;
   }
+
+
+  .infoBox span {
+    font-size: 11px;
+
+    margin-bottom: 6px;
+  }
+
+
+  .infoBox strong {
+    font-size: 16px;
+  }
+
+
+  .mobileBtn {
+    height: 45px;
+
+    font-size: 14px;
+  }
+
+}
+
+
+/* =========================================================
+   TABLE ANIMATION
+   ========================================================= */
+
+@keyframes quizTableIn {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(20px)
+      scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE CARD ANIMATION
+   ========================================================= */
+
+@keyframes mobileCardIn {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(25px)
+      scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .quizTable,
+  .mobileQuizCard {
+    animation: none !important;
+  }
+
+  .quizTable *,
+  .mobileQuizCard * {
+    transition: none !important;
+  }
+
 }

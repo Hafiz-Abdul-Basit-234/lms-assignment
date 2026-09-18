@@ -1,65 +1,382 @@
+/* =========================================================
+   PREMIUM CARDS
+   ========================================================= */
+
 .cardsWrapper {
   display: grid;
+
   grid-template-columns: 1fr 1fr;
+
   gap: 18px;
+
   margin-bottom: 20px;
 }
 
+
+/* =========================================================
+   CARD
+   ========================================================= */
+
 .card {
-  background: #fff;
-  border: 1px solid #e5e7eb;
-  border-radius: 16px;
+  position: relative;
+
+  background: linear-gradient(
+    145deg,
+    #ffffff 0%,
+    #f8fafc 100%
+  );
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 18px;
 
   padding: 24px 28px;
 
   display: flex;
+
   justify-content: space-between;
+
   align-items: center;
 
   min-height: 110px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 8px 24px rgba(15, 23, 42, 0.05),
+    0 2px 8px rgba(37, 99, 235, 0.025);
+
+  animation: cardPremiumIn 0.65s ease both;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
 }
 
-.card h2 {
-  font-size: 44px;
-  font-weight: 600;
-  color: #111827;
-  margin-bottom: 8px;
+
+/* Premium top accent */
+
+.card::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 3px;
+
+  background: linear-gradient(
+    90deg,
+    #2563eb,
+    #4f46e5,
+    #7c3aed
+  );
+
+  opacity: 0.75;
 }
 
-.card p {
-  font-size: 18px;
-  color: #374151;
-}
 
-.cardIcon {
-  width: 48px;
-  height: 48px;
+/* Soft glow */
+
+.card::after {
+  content: "";
+
+  position: absolute;
+
+  width: 130px;
+  height: 130px;
+
+  right: -75px;
+  top: -75px;
 
   border-radius: 50%;
 
+  background: rgba(37, 99, 235, 0.07);
+
+  pointer-events: none;
+
+  transition:
+    transform 0.5s ease,
+    opacity 0.5s ease;
+}
+
+
+/* =========================================================
+   HOVER
+   ========================================================= */
+
+.card:hover {
+  transform: translateY(-6px);
+
+  border-color: #bfdbfe;
+
+  box-shadow:
+    0 18px 40px rgba(15, 23, 42, 0.09),
+    0 8px 20px rgba(37, 99, 235, 0.06);
+}
+
+
+.card:hover::after {
+  transform: scale(1.5);
+
+  opacity: 0.8;
+}
+
+
+/* =========================================================
+   NUMBER
+   ========================================================= */
+
+.card h2 {
+  position: relative;
+  z-index: 2;
+
+  font-size: 44px;
+
+  font-weight: 800;
+
+  color: #111827;
+
+  margin-bottom: 8px;
+
+  line-height: 1;
+
+  letter-spacing: -1px;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+
+.card:hover h2 {
+  color: #2563eb;
+
+  transform: translateX(3px);
+}
+
+
+/* =========================================================
+   TEXT
+   ========================================================= */
+
+.card p {
+  position: relative;
+  z-index: 2;
+
+  font-size: 18px;
+
+  color: #475569;
+
+  font-weight: 500;
+
+  transition: color 0.3s ease;
+}
+
+
+.card:hover p {
+  color: #334155;
+}
+
+
+/* =========================================================
+   ICON
+   ========================================================= */
+
+.cardIcon {
+  position: relative;
+  z-index: 2;
+
+  width: 48px;
+  height: 48px;
+
+  border-radius: 15px;
+
   display: flex;
+
   align-items: center;
   justify-content: center;
 
   font-size: 22px;
+
+  flex-shrink: 0;
+
+  box-shadow:
+    0 6px 15px rgba(15, 23, 42, 0.07);
+
+  transition:
+    transform 0.4s cubic-bezier(.2,.8,.2,1),
+    box-shadow 0.4s ease;
 }
+
+
+.card:hover .cardIcon {
+  transform:
+    scale(1.12)
+    rotate(5deg);
+
+  box-shadow:
+    0 10px 22px rgba(37, 99, 235, 0.14);
+}
+
+
+/* =========================================================
+   GREEN
+   ========================================================= */
 
 .green {
-  background: #d1fae5;
-  color: #10b981;
+  background: linear-gradient(
+    135deg,
+    #d1fae5,
+    #a7f3d0
+  );
+
+  color: #059669;
 }
 
+
+/* =========================================================
+   PURPLE
+   ========================================================= */
+
 .purple {
-  background: #f3e8ff;
+  background: linear-gradient(
+    135deg,
+    #f3e8ff,
+    #e9d5ff
+  );
+
   color: #8b5cf6;
 }
 
+
+/* =========================================================
+   STAGGER ANIMATION
+   ========================================================= */
+
+.card:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.card:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.card:nth-child(3) {
+  animation-delay: 0.25s;
+}
+
+.card:nth-child(4) {
+  animation-delay: 0.35s;
+}
+
+
+/* =========================================================
+   TABLET / MOBILE
+   ========================================================= */
+
 @media (max-width: 768px) {
+
   .cardsWrapper {
     grid-template-columns: 1fr;
+
+    gap: 15px;
+  }
+
+  .card {
+    min-height: 100px;
+
+    padding: 20px 22px;
+
+    border-radius: 17px;
   }
 
   .card h2 {
     font-size: 32px;
   }
+
+  .card p {
+    font-size: 16px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .card {
+    padding: 18px;
+
+    min-height: 90px;
+  }
+
+  .card h2 {
+    font-size: 28px;
+  }
+
+  .card p {
+    font-size: 14px;
+  }
+
+  .cardIcon {
+    width: 44px;
+    height: 44px;
+
+    border-radius: 13px;
+
+    font-size: 20px;
+  }
+
+}
+
+
+/* =========================================================
+   ENTRANCE ANIMATION
+   ========================================================= */
+
+@keyframes cardPremiumIn {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(22px)
+      scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .card {
+    animation: none !important;
+
+    transition: none !important;
+  }
+
+  .card *,
+  .cardIcon {
+    transition: none !important;
+  }
+
 }

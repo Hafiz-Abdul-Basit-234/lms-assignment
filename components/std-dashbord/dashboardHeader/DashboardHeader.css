@@ -1,81 +1,334 @@
+/* =========================================================
+   PREMIUM DASHBOARD HEADER
+   ========================================================= */
+
 .dashboardHeader {
+  position: relative;
+
   display: flex;
+
   justify-content: space-between;
+
   align-items: center;
+
   margin-bottom: 25px;
+
+  padding: 4px 0;
+
+  animation: headerFadeIn 0.6s ease both;
 }
+
+
+/* =========================================================
+   BREADCRUMB
+   ========================================================= */
 
 .breadcrumb {
   display: flex;
+
   align-items: center;
+
   gap: 12px;
+
+  animation: breadcrumbIn 0.7s ease both;
 }
+
 
 .breadcrumb span {
   font-size: 15px;
+
   color: #64748b;
+
+  font-weight: 500;
+
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
 }
+
+
+.breadcrumb span:hover {
+  color: #2563eb;
+
+  transform: translateY(-1px);
+}
+
 
 .breadcrumb .active {
   color: #111827;
-  font-weight: 600;
+
+  font-weight: 700;
 }
+
+
+/* =========================================================
+   ARROW
+   ========================================================= */
 
 .arrow {
   font-size: 18px;
+
+  color: #94a3b8;
+
+  transition:
+    transform 0.3s ease,
+    color 0.3s ease;
 }
 
+
+.breadcrumb:hover .arrow {
+  color: #2563eb;
+
+  transform: translateX(2px);
+}
+
+
+/* =========================================================
+   FEEDBACK BUTTON
+   ========================================================= */
+
 .feedbackBtn {
+  position: relative;
+
   display: flex;
+
   align-items: center;
+
+  justify-content: center;
+
   gap: 8px;
 
-  background: white;
-  border: 1px solid #e5e7eb;
+  background: linear-gradient(
+    145deg,
+    #ffffff,
+    #f8fafc
+  );
+
+  border: 1px solid #e2e8f0;
 
   padding: 12px 18px;
+
   border-radius: 12px;
 
   cursor: pointer;
-  font-size: 14px;
-  font-weight: 500;
 
-  transition: 0.3s;
+  font-size: 14px;
+
+  font-weight: 600;
+
+  color: #334155;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 5px 15px rgba(15, 23, 42, 0.05);
+
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
 }
+
+
+/* Shine animation */
+
+.feedbackBtn::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -100%;
+
+  width: 70%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+
+  transform: skewX(-20deg);
+
+  transition: left 0.6s ease;
+}
+
+
+.feedbackBtn:hover::before {
+  left: 130%;
+}
+
 
 .feedbackBtn:hover {
-  background: #f8fafc;
+  transform:
+    translateY(-3px)
+    scale(1.02);
+
+  background: linear-gradient(
+    135deg,
+    #eff6ff,
+    #ffffff
+  );
+
+  color: #2563eb;
+
+  border-color: #bfdbfe;
+
+  box-shadow:
+    0 10px 25px rgba(37, 99, 235, 0.12);
 }
+
+
+.feedbackBtn:active {
+  transform: scale(0.97);
+}
+
+
+/* =========================================================
+   ICON
+   ========================================================= */
 
 .feedbackBtn svg {
+  position: relative;
+  z-index: 2;
+
   font-size: 18px;
+
+  transition:
+    transform 0.35s ease,
+    color 0.3s ease;
 }
 
-@media (max-width: 768px) {
-  .dashboardHeader {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 15px;
-  }
+
+.feedbackBtn:hover svg {
+  transform:
+    scale(1.15)
+    rotate(-5deg);
+
+  color: #2563eb;
 }
-@media (max-width: 580px) {
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 768px) {
+
   .dashboardHeader {
     flex-direction: column;
+
     align-items: flex-start;
+
     gap: 15px;
   }
+
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 580px) {
+
+  .dashboardHeader {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+  }
+
 
   .breadcrumb {
     flex-wrap: wrap;
+
     gap: 6px;
   }
+
 
   .breadcrumb span {
     font-size: 13px;
   }
 
+
+  .arrow {
+    font-size: 15px;
+  }
+
+
   .feedbackBtn {
     width: 100%;
+
     justify-content: center;
+
+    padding: 11px 15px;
   }
+
+}
+
+
+/* =========================================================
+   ENTRANCE ANIMATIONS
+   ========================================================= */
+
+@keyframes headerFadeIn {
+
+  from {
+    opacity: 0;
+
+    transform: translateY(-12px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+
+}
+
+
+@keyframes breadcrumbIn {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateX(-15px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateX(0);
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .dashboardHeader,
+  .breadcrumb {
+    animation: none !important;
+  }
+
+  .dashboardHeader *,
+  .feedbackBtn {
+    transition: none !important;
+  }
+
 }
