@@ -1,0 +1,54 @@
+.assignmentTable{
+  background:#fff;
+  border-radius:20px;
+  overflow:hidden;
+  border:1px solid #e5e7eb;
+}
+
+.assignmentTable table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+.assignmentTable th,
+.assignmentTable td{
+  padding:18px;
+  text-align:left;
+  border-bottom:1px solid #e5e7eb;
+}
+
+.assignmentTable th{
+  background:#f8fafc;
+}
+
+.status{
+  padding:7px 14px;
+  border-radius:20px;
+  font-size:13px;
+}
+
+.approved{
+  background:#dcfce7;
+  color:#16a34a;
+}
+
+.submitted{
+  background:#dbeafe;
+  color:#2563eb;
+}
+
+.pending{
+  background:#fef3c7;
+  color:#d97706;
+}
+
+@media(max-width:768px){
+
+  .assignmentTable{
+    overflow-x:auto;
+  }
+
+  .assignmentTable table{
+    min-width:700px;
+  }
+}
