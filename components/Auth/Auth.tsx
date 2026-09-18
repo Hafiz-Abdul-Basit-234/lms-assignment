@@ -1,6 +1,6 @@
 "use client";
 
-import "@/components/Auth/Auth.css";
+import "./Auth.css";
 import Image from "next/image";
 import logo from "@/public/assets/logo1.png";
 import { useRouter } from "next/navigation";
