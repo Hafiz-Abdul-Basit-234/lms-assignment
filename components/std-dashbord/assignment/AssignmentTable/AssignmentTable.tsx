@@ -33,7 +33,7 @@ export default function AssignmentTable() {
     },
   ];
 
-  const getStatusClass = (status) => {
+  const getStatusClass = (status:string) => {
     if (status === "APPROVED") return "approved";
     if (status === "SUBMITTED") return "submitted";
     return "pending";
