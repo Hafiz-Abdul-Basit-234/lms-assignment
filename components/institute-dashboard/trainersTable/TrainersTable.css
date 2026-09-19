@@ -1,435 +1,64 @@
-/* =========================================================
-   TRAINERS TABLE — PREMIUM + FULL RESPONSIVE
-   ========================================================= */
-
-.trainersTable {
-  width: 100%;
-  margin-top: 25px;
-
-  background: #ffffff;
-
-  border: 1px solid #e2e8f0;
-  border-radius: 22px;
-
-  overflow: hidden;
-
-  box-shadow:
-    0 15px 40px rgba(15, 23, 42, 0.06),
-    0 4px 12px rgba(15, 23, 42, 0.03);
-
-  position: relative;
+.trainersTable{
+  margin-top:25px;
+  background:#fff;
+  border-radius:20px;
+  border:1px solid #e5e7eb;
+  overflow:hidden;
 }
 
-
-/* TOP GRADIENT */
-
-.trainersTable::before {
-  content: "";
-
-  position: absolute;
-
-  top: 0;
-  left: 0;
-
-  width: 100%;
-  height: 3px;
-
-  background: linear-gradient(
-    90deg,
-    #2563eb,
-    #3b82f6,
-    #4f46e5,
-    #7c3aed
-  );
+.trainersTable h2{
+  padding:20px;
 }
 
-
-/* =========================================================
-   TITLE
-   ========================================================= */
-
-.trainersTable h2 {
-  margin: 0;
-
-  padding: 24px 25px 20px;
-
-  color: #0f172a;
-
-  font-size: 22px;
-
-  font-weight: 800;
-
-  letter-spacing: -0.4px;
+.trainersTable table{
+  width:100%;
+  border-collapse:collapse;
 }
 
-.trainersTable h2::after {
-  content: "";
-
-  display: block;
-
-  width: 38px;
-  height: 3px;
-
-  margin-top: 8px;
-
-  border-radius: 10px;
-
-  background: linear-gradient(
-    90deg,
-    #2563eb,
-    #4f46e5
-  );
+.trainersTable th{
+  background:#f8fafc;
+  padding:18px;
+  text-align:left;
 }
 
-
-/* =========================================================
-   DESKTOP TABLE
-   ========================================================= */
-
-.trainersTable table {
-  width: 100%;
-
-  border-collapse: collapse;
-
-  table-layout: auto;
+.trainersTable td{
+  padding:18px;
+  border-bottom:1px solid #e5e7eb;
 }
 
-
-.trainersTable thead {
-  display: table-header-group;
+.trainersTable tr:last-child td{
+  border-bottom:none;
 }
 
+@media(max-width:768px){
 
-.trainersTable tbody {
-  display: table-row-group;
-}
-
-
-.trainersTable tr {
-  display: table-row;
-}
-
-
-.trainersTable th {
-  padding: 15px 20px;
-
-  background: linear-gradient(
-    180deg,
-    #f8fafc,
-    #f1f5f9
-  );
-
-  color: #475569;
-
-  font-size: 12px;
-
-  font-weight: 700;
-
-  text-align: left;
-
-  text-transform: uppercase;
-
-  letter-spacing: 0.4px;
-
-  border-top: 1px solid #eef2f7;
-
-  border-bottom: 1px solid #e2e8f0;
-}
-
-
-.trainersTable td {
-  padding: 17px 20px;
-
-  color: #475569;
-
-  font-size: 13px;
-
-  border-bottom: 1px solid #eef2f7;
-
-  vertical-align: middle;
-
-  overflow-wrap: anywhere;
-}
-
-
-.trainersTable tbody tr {
-  transition: background 0.25s ease;
-}
-
-
-.trainersTable tbody tr:hover {
-  background: #f8fbff;
-}
-
-
-.trainersTable tbody tr:last-child td {
-  border-bottom: none;
-}
-
-
-.trainersTable td:first-child {
-  color: #0f172a;
-
-  font-weight: 700;
-}
-
-
-/* =========================================================
-   TABLET
-   ========================================================= */
-
-@media (max-width: 992px) {
-
-  .trainersTable h2 {
-    padding: 21px 20px 18px;
-
-    font-size: 21px;
+  .trainersTable{
+    overflow:hidden;
   }
 
-  .trainersTable th {
-    padding: 14px 15px;
-
-    font-size: 11px;
+  .trainersTable table,
+  .trainersTable thead{
+    display:none;
   }
 
-  .trainersTable td {
-    padding: 15px;
-
-    font-size: 12px;
-  }
-}
-
-
-/* =========================================================
-   MOBILE
-   ========================================================= */
-
-@media (max-width: 768px) {
-
-  .trainersTable {
-    margin-top: 20px;
-
-    border-radius: 18px;
-
-    /* NO HORIZONTAL SCROLL */
-    overflow: hidden;
+  .trainersTable tbody{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+    padding:15px;
   }
 
-
-  /* Hide desktop header */
-
-  .trainersTable thead {
-    display: none;
+  .trainersTable tr{
+    display:block;
+    background:#fff;
+    border:1px solid #e5e7eb;
+    border-radius:15px;
+    padding:15px;
   }
 
-
-  /* IMPORTANT:
-     tbody ko block rakha hai */
-
-  .trainersTable table {
-    display: block;
-
-    width: 100%;
-  }
-
-  .trainersTable tbody {
-    display: flex;
-
-    flex-direction: column;
-
-    gap: 12px;
-
-    width: 100%;
-
-    padding: 14px;
-  }
-
-
-  /* =======================================================
-     TRAINER CARD
-     ======================================================= */
-
-  .trainersTable tr {
-    display: grid;
-
-    grid-template-columns:
-      minmax(0, 1fr)
-      minmax(0, 1fr);
-
-    width: 100%;
-
-    padding: 14px 16px;
-
-    background:
-      linear-gradient(
-        145deg,
-        #ffffff,
-        #f8fafc
-      );
-
-    border: 1px solid #e2e8f0;
-
-    border-radius: 16px;
-
-    box-shadow:
-      0 5px 16px rgba(15, 23, 42, 0.04);
-
-    box-sizing: border-box;
-
-    overflow: hidden;
-
-    transition:
-      border-color 0.25s ease,
-      box-shadow 0.25s ease;
-  }
-
-
-  .trainersTable tr:hover {
-    border-color: #bfdbfe;
-
-    box-shadow:
-      0 10px 25px rgba(37, 99, 235, 0.07);
-  }
-
-
-  /* =======================================================
-     CELLS
-     ======================================================= */
-
-  .trainersTable td {
-    display: block;
-
-    width: 100%;
-
-    min-width: 0;
-
-    padding: 9px 5px;
-
-    border: none;
-
-    color: #475569;
-
-    font-size: 12px;
-
-    line-height: 1.5;
-
-    box-sizing: border-box;
-
-    overflow-wrap: anywhere;
-
-    word-break: break-word;
-  }
-
-
-  .trainersTable td:first-child {
-    color: #0f172a;
-
-    font-weight: 700;
-  }
-
-
-  /* Every second cell gets proper spacing */
-
-  .trainersTable td:nth-child(even) {
-    padding-left: 10px;
-  }
-}
-
-
-/* =========================================================
-   SMALL MOBILE
-   ========================================================= */
-
-@media (max-width: 480px) {
-
-  .trainersTable {
-    margin-top: 18px;
-
-    border-radius: 16px;
-  }
-
-
-  .trainersTable h2 {
-    padding: 19px 16px 16px;
-
-    font-size: 19px;
-  }
-
-
-  .trainersTable h2::after {
-    width: 32px;
-
-    height: 2px;
-
-    margin-top: 7px;
-  }
-
-
-  .trainersTable tbody {
-    padding: 10px;
-
-    gap: 10px;
-  }
-
-
-  .trainersTable tr {
-    grid-template-columns:
-      minmax(0, 1fr)
-      minmax(0, 1fr);
-
-    padding: 12px;
-
-    border-radius: 14px;
-  }
-
-
-  .trainersTable td {
-    padding: 8px 4px;
-
-    font-size: 11.5px;
-  }
-
-
-  .trainersTable td:nth-child(even) {
-    padding-left: 8px;
-  }
-}
-
-
-/* =========================================================
-   VERY SMALL MOBILE
-   ========================================================= */
-
-@media (max-width: 360px) {
-
-  .trainersTable h2 {
-    font-size: 18px;
-  }
-
-  .trainersTable tbody {
-    padding: 8px;
-  }
-
-  .trainersTable tr {
-    padding: 10px;
-  }
-
-  .trainersTable td {
-    font-size: 11px;
-
-    padding: 7px 3px;
-  }
-}
-
-
-/* =========================================================
-   ACCESSIBILITY
-   ========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-  .trainersTable *,
-  .trainersTable tr {
-    transition: none !important;
+  .trainersTable td{
+    display:block;
+    border:none;
+    padding:6px 0;
   }
 }
