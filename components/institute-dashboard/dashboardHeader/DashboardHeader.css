@@ -1,0 +1,716 @@
+/* =========================================================
+   PREMIUM DASHBOARD HEADER
+   ========================================================= */
+
+.dashboardHeader {
+  position: relative;
+
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  gap: 25px;
+
+  margin-bottom: 26px;
+
+  padding: 4px 0;
+}
+
+
+/* =========================================================
+   HEADER LEFT
+   ========================================================= */
+
+.headerLeft {
+  min-width: 0;
+}
+
+.headerLeft h1 {
+  margin: 0 0 6px;
+
+  font-size: 32px;
+
+  line-height: 1.2;
+
+  font-weight: 800;
+
+  letter-spacing: -0.8px;
+
+  color: #0f172a;
+
+  background:
+    linear-gradient(
+      90deg,
+      #0f172a,
+      #1e3a8a
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+}
+
+
+.headerLeft p {
+  margin: 0;
+
+  color: #64748b;
+
+  font-size: 14px;
+
+  line-height: 1.6;
+
+  font-weight: 400;
+}
+
+
+/* =========================================================
+   HEADER RIGHT
+   ========================================================= */
+
+.headerRight {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: flex-end;
+
+  gap: 11px;
+
+  flex-shrink: 0;
+}
+
+
+/* =========================================================
+   SEARCH BOX
+   ========================================================= */
+
+.searchBox {
+  position: relative;
+
+  width: 275px;
+
+  height: 50px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 0 15px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.98),
+      rgba(248, 250, 252, 0.96)
+    );
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 5px 16px rgba(15, 23, 42, 0.035),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.25s ease;
+}
+
+
+.searchBox:hover {
+  border-color: #bfdbfe;
+
+  box-shadow:
+    0 8px 22px rgba(37, 99, 235, 0.07);
+}
+
+
+.searchBox:focus-within {
+  border-color: #60a5fa;
+
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 0 0 4px rgba(59, 130, 246, 0.09),
+    0 10px 25px rgba(37, 99, 235, 0.07);
+}
+
+
+.searchBox svg {
+  flex: 0 0 auto;
+
+  color: #64748b;
+
+  font-size: 18px;
+
+  transition:
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+
+.searchBox:focus-within svg {
+  color: #2563eb;
+
+  transform: scale(1.05);
+}
+
+
+.searchBox input {
+  width: 100%;
+
+  min-width: 0;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: #0f172a;
+
+  font-family: inherit;
+
+  font-size: 13px;
+}
+
+
+.searchBox input::placeholder {
+  color: #94a3b8;
+
+  transition: opacity 0.25s ease;
+}
+
+
+.searchBox input:focus::placeholder {
+  opacity: 0.55;
+}
+
+
+/* =========================================================
+   NOTIFICATION BUTTON
+   ========================================================= */
+
+.notificationBtn {
+  position: relative;
+
+  flex: 0 0 auto;
+
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #f8fafc
+    );
+
+  color: #334155;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 5px 16px rgba(15, 23, 42, 0.035),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.notificationBtn:hover {
+  transform: translateY(-2px);
+
+  color: #2563eb;
+
+  border-color: #bfdbfe;
+
+  box-shadow:
+    0 9px 22px rgba(37, 99, 235, 0.10);
+}
+
+
+.notificationBtn:active {
+  transform: translateY(0) scale(0.97);
+}
+
+
+.notificationBtn svg {
+  font-size: 20px;
+
+  transition: transform 0.25s ease;
+}
+
+
+.notificationBtn:hover svg {
+  transform: rotate(-8deg);
+}
+
+
+/* =========================================================
+   NOTIFICATION DOT
+   ========================================================= */
+
+.notificationBtn span {
+  position: absolute;
+
+  top: 10px;
+  right: 10px;
+
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: #ef4444;
+
+  border: 2px solid #ffffff;
+
+  box-shadow:
+    0 0 0 2px rgba(239, 68, 68, 0.08);
+
+  animation: notificationPulse 2s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   PROFILE BOX
+   ========================================================= */
+
+.profileBox {
+  min-width: 190px;
+
+  padding: 7px 12px 7px 8px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.98),
+      rgba(248, 250, 252, 0.96)
+    );
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 15px;
+
+  box-shadow:
+    0 5px 16px rgba(15, 23, 42, 0.035),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+.profileBox:hover {
+  transform: translateY(-2px);
+
+  border-color: #bfdbfe;
+
+  box-shadow:
+    0 10px 25px rgba(15, 23, 42, 0.08);
+}
+
+
+/* =========================================================
+   PROFILE AVATAR
+   ========================================================= */
+
+.profileAvatar {
+  flex: 0 0 auto;
+
+  width: 43px;
+  height: 43px;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 13px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #4f46e5
+    );
+
+  color: #ffffff;
+
+  font-size: 14px;
+
+  font-weight: 800;
+
+  box-shadow:
+    0 7px 16px rgba(37, 99, 235, 0.22),
+    inset 0 1px 1px rgba(255, 255, 255, 0.25);
+
+  transition:
+    transform 0.3s ease;
+}
+
+
+.profileBox:hover .profileAvatar {
+  transform: scale(1.05);
+}
+
+
+/* =========================================================
+   PROFILE TEXT
+   ========================================================= */
+
+.profileBox h4 {
+  margin: 0 0 2px;
+
+  color: #0f172a;
+
+  font-size: 13px;
+
+  line-height: 1.4;
+
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+
+.profileBox p {
+  margin: 0;
+
+  color: #64748b;
+
+  font-size: 11px;
+
+  line-height: 1.4;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+}
+
+
+/* =========================================================
+   FOCUS ACCESSIBILITY
+   ========================================================= */
+
+.notificationBtn:focus-visible {
+  outline: none;
+
+  box-shadow:
+    0 0 0 4px rgba(59, 130, 246, 0.12),
+    0 8px 22px rgba(37, 99, 235, 0.08);
+}
+
+
+/* =========================================================
+   LARGE TABLET / SMALL DESKTOP
+   ========================================================= */
+
+@media (max-width: 1200px) {
+
+  .dashboardHeader {
+    gap: 18px;
+  }
+
+  .headerLeft h1 {
+    font-size: 29px;
+  }
+
+  .searchBox {
+    width: 230px;
+  }
+
+  .profileBox {
+    min-width: 175px;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 992px) {
+
+  .dashboardHeader {
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 18px;
+
+    margin-bottom: 22px;
+  }
+
+  .headerLeft {
+    width: 100%;
+  }
+
+  .headerRight {
+    width: 100%;
+
+    justify-content: flex-start;
+
+    flex-wrap: wrap;
+  }
+
+  .searchBox {
+    flex: 1;
+
+    width: auto;
+
+    min-width: 220px;
+  }
+
+  .profileBox {
+    min-width: 175px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .dashboardHeader {
+    gap: 15px;
+
+    margin-bottom: 20px;
+  }
+
+  .headerLeft h1 {
+    font-size: 24px;
+
+    letter-spacing: -0.5px;
+
+    margin-bottom: 5px;
+  }
+
+  .headerLeft p {
+    font-size: 13px;
+
+    line-height: 1.5;
+  }
+
+  .headerRight {
+    display: grid;
+
+    grid-template-columns: 1fr 50px;
+
+    width: 100%;
+
+    gap: 10px;
+  }
+
+  .searchBox {
+    width: 100%;
+
+    min-width: 0;
+
+    height: 48px;
+  }
+
+  .notificationBtn {
+    width: 48px;
+    height: 48px;
+  }
+
+  .profileBox {
+    grid-column: 1 / -1;
+
+    width: 100%;
+
+    min-width: 0;
+
+    padding: 7px 11px 7px 8px;
+
+    border-radius: 14px;
+  }
+
+  .profileAvatar {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .dashboardHeader {
+    margin-bottom: 18px;
+  }
+
+  .headerLeft h1 {
+    font-size: 21px;
+  }
+
+  .headerLeft p {
+    font-size: 12px;
+  }
+
+  .headerRight {
+    grid-template-columns: 1fr 46px;
+
+    gap: 8px;
+  }
+
+  .searchBox {
+    height: 46px;
+
+    padding: 0 13px;
+
+    border-radius: 13px;
+  }
+
+  .searchBox svg {
+    font-size: 17px;
+  }
+
+  .searchBox input {
+    font-size: 12px;
+  }
+
+  .notificationBtn {
+    width: 46px;
+    height: 46px;
+
+    border-radius: 13px;
+  }
+
+  .notificationBtn svg {
+    font-size: 18px;
+  }
+
+  .notificationBtn span {
+    top: 9px;
+    right: 9px;
+  }
+
+  .profileBox {
+    padding: 7px 10px 7px 7px;
+  }
+
+  .profileAvatar {
+    width: 40px;
+    height: 40px;
+
+    border-radius: 12px;
+  }
+
+  .profileBox h4 {
+    font-size: 12px;
+  }
+
+  .profileBox p {
+    font-size: 10px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+  .headerLeft h1 {
+    font-size: 19px;
+  }
+
+  .headerLeft p {
+    font-size: 11px;
+  }
+
+  .headerRight {
+    grid-template-columns: 1fr 44px;
+  }
+
+  .searchBox {
+    height: 44px;
+  }
+
+  .notificationBtn {
+    width: 44px;
+    height: 44px;
+  }
+
+  .profileAvatar {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+
+/* =========================================================
+   NOTIFICATION ANIMATION
+   ========================================================= */
+
+@keyframes notificationPulse {
+
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 2px rgba(239, 68, 68, 0.08);
+  }
+
+  50% {
+    box-shadow:
+      0 0 0 5px rgba(239, 68, 68, 0.10);
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .dashboardHeader *,
+  .notificationBtn span {
+    animation: none !important;
+
+    transition: none !important;
+  }
+}

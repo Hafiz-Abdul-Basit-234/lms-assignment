@@ -1,6 +1,6 @@
 "use client";
 
-import "./Sidebarteacher.css";
+import "./SidebarInstitute.css";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -8,8 +8,9 @@ import logo from "@/public/assets/logo1.png";
 
 import {
   FiGrid,
-  FiFileText,
-  FiCalendar,
+  FiUsers,
+  FiUserCheck,
+  FiHome,
   FiMenu,
 } from "react-icons/fi";
 
@@ -18,7 +19,7 @@ interface SidebarProps {
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-export default function SidebarTeacher({
+export default function SidebarInstitute({
   open,
   setOpen,
 }: SidebarProps) {
@@ -34,12 +35,14 @@ export default function SidebarTeacher({
       </button>
 
       <aside
-        className={`sidebar ${!open ? "hide" : ""}`}
+        className={`sidebar ${
+          !open ? "hide" : ""
+        }`}
       >
         <div className="sidebarTop">
           <Image
             src={logo}
-            alt="logo"
+            alt="Logo"
             className="sidebarLogo"
           />
         </div>
@@ -47,45 +50,56 @@ export default function SidebarTeacher({
         <nav className="sidebarMenu">
 
           <Link
-            href="/teacher-dashboard"
-            className="menuItem active"
+            href="/institute-dashboard"
+            className="menuItem"
           >
             <FiGrid />
             <span>Dashboard</span>
           </Link>
 
           <Link
-            href="/teacher-dashboard/assignment"
+            href="/institute-dashboard/students"
             className="menuItem"
           >
-            <FiFileText />
-            <span>Assignment</span>
+            <FiUsers />
+            <span>Students</span>
           </Link>
 
           <Link
-            href="/teacher-dashboard/attendence"
+            href="/institute-dashboard/trainers"
             className="menuItem"
           >
-            <FiCalendar />
-            <span>Attendence</span>
+            <FiUserCheck />
+            <span>Trainers</span>
+          </Link>
+
+          <Link
+            href="/institute-dashboard/campus"
+            className="menuItem"
+          >
+            <FiHome />
+            <span>Campus</span>
           </Link>
 
         </nav>
 
         <div className="sidebarBottom">
+
           <div className="userInfo">
 
             <div className="avatar">
-              HB
+              IN
             </div>
 
             <div>
-              <h4>Hafiz Abdul Basit</h4>
-              <p>Teacher</p>
+              <h4>SMIT Institute</h4>
+              <p>Institute Admin</p>
             </div>
 
           </div>
+
         </div>
+
       </aside>
     </>
   );

@@ -1,0 +1,382 @@
+/* =========================================
+   PREMIUM ATTENDANCE STATS
+   ========================================= */
+
+.attendanceStats {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  margin-bottom: 30px;
+}
+
+/* =========================================
+   CARD
+   ========================================= */
+
+.attendanceCard {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  min-width: 0;
+  min-height: 150px;
+
+  padding: 26px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  background:
+    radial-gradient(
+      circle at 100% 0%,
+      rgba(37, 99, 235, 0.08),
+      transparent 38%
+    ),
+    linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 20px;
+
+  box-shadow:
+    0 10px 30px rgba(15, 23, 42, 0.06),
+    0 2px 8px rgba(15, 23, 42, 0.03);
+
+  transition:
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+
+  animation: attendanceFadeUp 0.65s ease both;
+}
+
+/* =========================================
+   TOP GLOW
+   ========================================= */
+
+.attendanceCard::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+
+  width: 170px;
+  height: 170px;
+
+  top: -85px;
+  right: -75px;
+
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(37, 99, 235, 0.18) 0%,
+    rgba(99, 102, 241, 0.08) 45%,
+    transparent 72%
+  );
+
+  transition: transform 0.45s ease;
+}
+
+/* =========================================
+   SHINE
+   ========================================= */
+
+.attendanceCard::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+
+  top: 0;
+  left: -130%;
+
+  width: 75%;
+  height: 100%;
+
+  background: linear-gradient(
+    100deg,
+    transparent,
+    rgba(255, 255, 255, 0.65),
+    transparent
+  );
+
+  transform: skewX(-20deg);
+
+  transition: left 0.65s ease;
+
+  pointer-events: none;
+}
+
+/* =========================================
+   HOVER
+   ========================================= */
+
+.attendanceCard:hover {
+  transform: translateY(-7px);
+
+  border-color: rgba(37, 99, 235, 0.25);
+
+  box-shadow:
+    0 20px 45px rgba(37, 99, 235, 0.11),
+    0 8px 18px rgba(15, 23, 42, 0.06);
+}
+
+.attendanceCard:hover::before {
+  transform: scale(1.35);
+}
+
+.attendanceCard:hover::after {
+  left: 135%;
+}
+
+/* =========================================
+   CARD CONTENT
+   ========================================= */
+
+.attendanceCard h4 {
+  position: relative;
+  z-index: 2;
+
+  margin: 0 0 10px;
+
+  color: #64748b;
+
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.4;
+
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+}
+
+.attendanceCard h2 {
+  position: relative;
+  z-index: 2;
+
+  margin: 0;
+
+  color: #2563eb;
+
+  font-size: clamp(28px, 2.5vw, 38px);
+  font-weight: 800;
+  line-height: 1.1;
+
+  letter-spacing: -1.5px;
+
+  text-shadow:
+    0 4px 15px rgba(37, 99, 235, 0.12);
+}
+
+/* =========================================
+   OPTIONAL CARD COLORS
+   Add these classes if required
+   ========================================= */
+
+.attendanceCard.success h2 {
+  color: #16a34a;
+}
+
+.attendanceCard.warning h2 {
+  color: #f59e0b;
+}
+
+.attendanceCard.danger h2 {
+  color: #ef4444;
+}
+
+.attendanceCard.info h2 {
+  color: #2563eb;
+}
+
+/* =========================================
+   STAGGER ANIMATION
+   ========================================= */
+
+.attendanceCard:nth-child(1) {
+  animation-delay: 0.05s;
+}
+
+.attendanceCard:nth-child(2) {
+  animation-delay: 0.12s;
+}
+
+.attendanceCard:nth-child(3) {
+  animation-delay: 0.19s;
+}
+
+.attendanceCard:nth-child(4) {
+  animation-delay: 0.26s;
+}
+
+/* =========================================
+   TABLET
+   ========================================= */
+
+@media (max-width: 1100px) {
+  .attendanceStats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .attendanceCard {
+    min-height: 140px;
+    padding: 23px;
+  }
+}
+
+/* =========================================
+   SMALL TABLETS
+   ========================================= */
+
+@media (max-width: 768px) {
+  .attendanceStats {
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .attendanceCard {
+    min-height: 135px;
+    padding: 20px;
+    border-radius: 17px;
+  }
+
+  .attendanceCard h4 {
+    font-size: 12px;
+    margin-bottom: 8px;
+  }
+
+  .attendanceCard h2 {
+    font-size: 30px;
+  }
+}
+
+/* =========================================
+   MOBILE
+   ========================================= */
+
+@media (max-width: 600px) {
+  .attendanceStats {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-bottom: 22px;
+  }
+
+  .attendanceCard {
+    width: 100%;
+    min-height: 120px;
+
+    padding: 19px;
+
+    border-radius: 16px;
+  }
+
+  .attendanceCard h4 {
+    font-size: 12px;
+    letter-spacing: 0.55px;
+  }
+
+  .attendanceCard h2 {
+    font-size: 30px;
+    letter-spacing: -1px;
+  }
+
+  .attendanceCard:hover {
+    transform: translateY(-3px);
+  }
+}
+
+/* =========================================
+   VERY SMALL PHONES
+   ========================================= */
+
+@media (max-width: 380px) {
+  .attendanceStats {
+    gap: 11px;
+  }
+
+  .attendanceCard {
+    min-height: 110px;
+    padding: 16px;
+    border-radius: 14px;
+  }
+
+  .attendanceCard h4 {
+    font-size: 11px;
+    margin-bottom: 7px;
+  }
+
+  .attendanceCard h2 {
+    font-size: 27px;
+  }
+}
+
+/* =========================================
+   LARGE DESKTOP
+   ========================================= */
+
+@media (min-width: 1400px) {
+  .attendanceStats {
+    gap: 28px;
+  }
+
+  .attendanceCard {
+    min-height: 165px;
+    padding: 30px;
+    border-radius: 22px;
+  }
+
+  .attendanceCard h4 {
+    font-size: 14px;
+  }
+
+  .attendanceCard h2 {
+    font-size: 40px;
+  }
+}
+
+/* =========================================
+   ULTRA WIDE
+   ========================================= */
+
+@media (min-width: 1800px) {
+  .attendanceStats {
+    gap: 30px;
+  }
+
+  .attendanceCard {
+    padding: 32px;
+  }
+}
+
+/* =========================================
+   ENTRANCE ANIMATION
+   ========================================= */
+
+@keyframes attendanceFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+   ========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .attendanceCard,
+  .attendanceCard::before,
+  .attendanceCard::after {
+    animation: none;
+    transition: none;
+  }
+
+  .attendanceCard:hover {
+    transform: none;
+  }
+}

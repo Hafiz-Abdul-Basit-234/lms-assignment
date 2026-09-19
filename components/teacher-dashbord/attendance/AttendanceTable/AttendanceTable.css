@@ -1,0 +1,913 @@
+/* =========================================================
+   PREMIUM ATTENDANCE TABLE
+   Modern • Responsive • Mobile First • Accessible
+========================================================= */
+
+.attendanceTable {
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --indigo: #4f46e5;
+
+  --text-dark: #0f172a;
+  --text: #334155;
+  --text-muted: #64748b;
+
+  --border: #e2e8f0;
+  --border-light: #eef2f7;
+
+  --surface: #ffffff;
+  --surface-soft: #f8fafc;
+
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(59, 130, 246, 0.045),
+      transparent 35%
+    ),
+    linear-gradient(145deg, #ffffff, #f8fafc);
+
+  border: 1px solid var(--border);
+  border-radius: 24px;
+
+  overflow: hidden;
+
+  box-shadow:
+    0 20px 45px rgba(15, 23, 42, 0.07),
+    0 5px 15px rgba(15, 23, 42, 0.04);
+
+  animation: attendanceTableFade 0.55s ease both;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.attendanceTable h2 {
+  margin: 0;
+
+  padding: 22px 26px;
+
+  color: var(--text-dark);
+
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 800;
+
+  letter-spacing: -0.025em;
+
+  border-bottom: 1px solid var(--border-light);
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.96),
+      rgba(248, 250, 252, 0.85)
+    );
+}
+
+
+/* =========================================================
+   TABLE CONTAINER
+========================================================= */
+
+.attendanceTable table {
+  width: 100%;
+  min-width: 650px;
+
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+
+/* =========================================================
+   TABLE HEADER
+========================================================= */
+
+.attendanceTable th {
+  padding: 15px 20px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #f8fafc,
+      #f1f5f9
+    );
+
+  color: #64748b;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  text-align: left;
+  text-transform: uppercase;
+
+  letter-spacing: 0.08em;
+
+  white-space: nowrap;
+
+  border-bottom: 1px solid var(--border);
+}
+
+.attendanceTable th:first-child {
+  padding-left: 24px;
+}
+
+.attendanceTable th:last-child {
+  padding-right: 24px;
+}
+
+
+/* =========================================================
+   TABLE CELLS
+========================================================= */
+
+.attendanceTable td {
+  padding: 17px 20px;
+
+  color: var(--text);
+
+  font-size: 14px;
+  font-weight: 500;
+
+  background: rgba(255, 255, 255, 0.55);
+
+  border-bottom: 1px solid var(--border-light);
+
+  vertical-align: middle;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease;
+}
+
+.attendanceTable td:first-child {
+  padding-left: 24px;
+}
+
+.attendanceTable td:last-child {
+  padding-right: 24px;
+}
+
+
+/* =========================================================
+   ROW
+========================================================= */
+
+.attendanceTable tbody tr {
+  position: relative;
+
+  transition:
+    transform 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.attendanceTable tbody tr:hover td {
+  background: #f8fbff;
+}
+
+.attendanceTable tbody tr:hover td:first-child {
+  color: var(--primary);
+}
+
+.attendanceTable tbody tr:last-child td {
+  border-bottom: none;
+}
+
+
+/* =========================================================
+   ID / FIRST COLUMN
+========================================================= */
+
+.attendanceTable td:first-child {
+  color: #64748b;
+  font-weight: 750;
+}
+
+
+/* =========================================================
+   STATUS BADGES
+========================================================= */
+
+.present,
+.absent {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-width: 82px;
+
+  padding: 8px 14px;
+
+  border-radius: 999px;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  line-height: 1;
+
+  letter-spacing: 0.02em;
+
+  white-space: nowrap;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.present {
+  color: #15803d;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ecfdf3,
+      #dcfce7
+    );
+
+  border: 1px solid #bbf7d0;
+
+  box-shadow:
+    0 5px 14px rgba(22, 163, 74, 0.09);
+}
+
+.absent {
+  color: #dc2626;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fff1f2,
+      #fee2e2
+    );
+
+  border: 1px solid #fecaca;
+
+  box-shadow:
+    0 5px 14px rgba(220, 38, 38, 0.09);
+}
+
+.present:hover,
+.absent:hover {
+  transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   ACTION BUTTON
+========================================================= */
+
+.attendanceTable button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-width: 82px;
+
+  padding: 9px 16px;
+
+  border: 0;
+  outline: none;
+
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--primary),
+      var(--indigo)
+    );
+
+  color: #ffffff;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 6px 14px rgba(37, 99, 235, 0.20);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+.attendanceTable button:hover {
+  transform: translateY(-2px);
+
+  filter: brightness(1.05);
+
+  box-shadow:
+    0 10px 22px rgba(37, 99, 235, 0.28);
+}
+
+.attendanceTable button:active {
+  transform: translateY(0);
+}
+
+.attendanceTable button:focus-visible {
+  box-shadow:
+    0 0 0 3px rgba(37, 99, 235, 0.18),
+    0 8px 18px rgba(37, 99, 235, 0.22);
+}
+
+
+/* =========================================================
+   DESKTOP SCROLL SAFETY
+========================================================= */
+
+.attendanceTable {
+  overflow-x: auto;
+}
+
+.attendanceTable h2 {
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+  .attendanceTable {
+    border-radius: 20px;
+  }
+
+  .attendanceTable h2 {
+    padding: 19px 20px;
+    font-size: 19px;
+  }
+
+  .attendanceTable table {
+    min-width: 600px;
+  }
+
+  .attendanceTable th {
+    padding: 14px 16px;
+    font-size: 10px;
+  }
+
+  .attendanceTable td {
+    padding: 15px 16px;
+    font-size: 13px;
+  }
+
+  .attendanceTable td:first-child,
+  .attendanceTable th:first-child {
+    padding-left: 20px;
+  }
+
+  .attendanceTable td:last-child,
+  .attendanceTable th:last-child {
+    padding-right: 20px;
+  }
+
+  .present,
+  .absent {
+    min-width: 76px;
+    padding: 7px 12px;
+  }
+
+  .attendanceTable button {
+    min-width: 76px;
+    padding: 8px 13px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE CARD LAYOUT
+========================================================= */
+
+@media (max-width: 768px) {
+
+  .attendanceTable {
+    width: 100%;
+
+    background: transparent;
+
+    border: none;
+    border-radius: 0;
+
+    box-shadow: none;
+
+    overflow: visible;
+  }
+
+
+  /* Header */
+
+  .attendanceTable h2 {
+    padding: 0 0 16px;
+
+    border: none;
+
+    background: transparent;
+
+    font-size: 19px;
+  }
+
+
+  /* Remove table behavior */
+
+  .attendanceTable table,
+  .attendanceTable tbody {
+    display: block;
+
+    width: 100%;
+
+    min-width: 0;
+  }
+
+  .attendanceTable thead {
+    display: none;
+  }
+
+
+  /* Card list */
+
+  .attendanceTable tbody {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+  }
+
+
+  /* =======================================================
+     CARD
+  ======================================================= */
+
+  .attendanceTable tr {
+    display: grid;
+
+    grid-template-columns:
+      minmax(42px, 0.55fr)
+      minmax(0, 1.45fr)
+      minmax(0, 1.2fr);
+
+    grid-template-areas:
+      "id name course"
+      "status status action";
+
+    gap: 13px 10px;
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 17px;
+
+    background:
+      radial-gradient(
+        circle at top right,
+        rgba(59, 130, 246, 0.055),
+        transparent 35%
+      ),
+      linear-gradient(
+        145deg,
+        #ffffff,
+        #f8fafc
+      );
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 18px;
+
+    box-shadow:
+      0 8px 22px rgba(15, 23, 42, 0.055);
+
+    animation: mobileAttendanceCard 0.45s ease both;
+
+    transition:
+      transform 0.28s ease,
+      box-shadow 0.28s ease,
+      border-color 0.28s ease;
+  }
+
+
+  .attendanceTable tr:hover {
+    transform: translateY(-3px);
+
+    border-color:
+      rgba(37, 99, 235, 0.20);
+
+    box-shadow:
+      0 15px 30px rgba(37, 99, 235, 0.09);
+  }
+
+
+  /* =======================================================
+     MOBILE CELLS
+  ======================================================= */
+
+  .attendanceTable td {
+    display: flex;
+
+    align-items: center;
+
+    min-width: 0;
+
+    padding: 0;
+
+    border: none;
+
+    background: transparent;
+
+    font-size: 13px;
+  }
+
+  .attendanceTable td::before {
+    display: none;
+  }
+
+
+  /* Grid placement */
+
+  .attendanceTable td:nth-child(1) {
+    grid-area: id;
+  }
+
+  .attendanceTable td:nth-child(2) {
+    grid-area: name;
+  }
+
+  .attendanceTable td:nth-child(3) {
+    grid-area: course;
+  }
+
+  .attendanceTable td:nth-child(4) {
+    grid-area: status;
+  }
+
+  .attendanceTable td:nth-child(5) {
+    grid-area: action;
+
+    justify-content: flex-end;
+  }
+
+
+  /* =======================================================
+     ID
+  ======================================================= */
+
+  .attendanceTable td:nth-child(1) {
+    color: #64748b;
+
+    font-size: 11px;
+
+    font-weight: 800;
+  }
+
+
+  /* =======================================================
+     NAME
+  ======================================================= */
+
+  .attendanceTable td:nth-child(2) {
+    color: #0f172a;
+
+    font-size: 14px;
+
+    font-weight: 800;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+  }
+
+
+  /* =======================================================
+     COURSE
+  ======================================================= */
+
+  .attendanceTable td:nth-child(3) {
+    color: #64748b;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+  }
+
+
+  /* =======================================================
+     SECOND ROW DIVIDER
+  ======================================================= */
+
+  .attendanceTable td:nth-child(4),
+  .attendanceTable td:nth-child(5) {
+    padding-top: 12px;
+
+    border-top: 1px solid #eef2f7;
+  }
+
+
+  /* =======================================================
+     STATUS
+  ======================================================= */
+
+  .attendanceTable td:nth-child(4) {
+    align-items: center;
+  }
+
+  .present,
+  .absent {
+    min-width: 72px;
+
+    padding: 7px 11px;
+
+    font-size: 10px;
+  }
+
+
+  /* =======================================================
+     BUTTON
+  ======================================================= */
+
+  .attendanceTable td:nth-child(5) button {
+    min-width: 70px;
+
+    padding: 8px 12px;
+
+    border-radius: 9px;
+
+    font-size: 11px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .attendanceTable h2 {
+    font-size: 18px;
+    padding-bottom: 14px;
+  }
+
+  .attendanceTable tbody {
+    gap: 12px;
+  }
+
+  .attendanceTable tr {
+    grid-template-columns:
+      0.55fr
+      1.45fr
+      1.15fr;
+
+    gap: 11px 8px;
+
+    padding: 14px;
+
+    border-radius: 16px;
+  }
+
+  .attendanceTable td:nth-child(1) {
+    font-size: 10px;
+  }
+
+  .attendanceTable td:nth-child(2) {
+    font-size: 13px;
+  }
+
+  .attendanceTable td:nth-child(3) {
+    font-size: 10px;
+  }
+
+  .present,
+  .absent {
+    min-width: 68px;
+
+    padding: 6px 10px;
+
+    font-size: 9px;
+  }
+
+  .attendanceTable td:nth-child(5) button {
+    min-width: 64px;
+
+    padding: 7px 10px;
+
+    font-size: 10px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 360px) {
+
+  .attendanceTable tr {
+    grid-template-columns:
+      0.5fr
+      1.4fr
+      1.1fr;
+
+    gap: 10px 7px;
+
+    padding: 12px;
+  }
+
+  .attendanceTable td:nth-child(1) {
+    font-size: 9px;
+  }
+
+  .attendanceTable td:nth-child(2) {
+    font-size: 12px;
+  }
+
+  .attendanceTable td:nth-child(3) {
+    font-size: 9px;
+  }
+
+  .present,
+  .absent {
+    min-width: 62px;
+
+    padding: 6px 8px;
+
+    font-size: 9px;
+  }
+
+  .attendanceTable td:nth-child(5) button {
+    min-width: 58px;
+
+    padding: 6px 8px;
+
+    font-size: 10px;
+  }
+}
+
+
+/* =========================================================
+   ANIMATIONS
+========================================================= */
+
+@keyframes attendanceTableFade {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0);
+  }
+}
+
+
+@keyframes mobileAttendanceCard {
+
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(10px)
+      scale(0.99);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .attendanceTable,
+  .attendanceTable tr,
+  .attendanceTable button,
+  .attendanceTable .present,
+  .attendanceTable .absent {
+    animation: none !important;
+
+    transition: none !important;
+  }
+}
+
+
+/* =========================================================
+   DARK MODE SUPPORT
+   Remove this section if your project doesn't use dark mode.
+========================================================= */
+
+@media (prefers-color-scheme: dark) {
+
+  .attendanceTable {
+    --text-dark: #f8fafc;
+    --text: #cbd5e1;
+    --text-muted: #94a3b8;
+
+    --border: #263449;
+    --border-light: #1e293b;
+
+    background:
+      radial-gradient(
+        circle at top right,
+        rgba(59, 130, 246, 0.08),
+        transparent 35%
+      ),
+      linear-gradient(
+        145deg,
+        #111827,
+        #0f172a
+      );
+
+    border-color: #263449;
+  }
+
+  .attendanceTable h2 {
+    background: rgba(15, 23, 42, 0.75);
+    color: #f8fafc;
+    border-color: #1e293b;
+  }
+
+  .attendanceTable th {
+    background:
+      linear-gradient(
+        180deg,
+        #1e293b,
+        #172033
+      );
+
+    color: #94a3b8;
+
+    border-color: #263449;
+  }
+
+  .attendanceTable td {
+    color: #cbd5e1;
+
+    background: rgba(15, 23, 42, 0.35);
+
+    border-color: #1e293b;
+  }
+
+  .attendanceTable tbody tr:hover td {
+    background: rgba(30, 41, 59, 0.65);
+  }
+
+  .attendanceTable td:nth-child(1) {
+    color: #94a3b8;
+  }
+
+  .attendanceTable td:nth-child(2) {
+    color: #f8fafc;
+  }
+
+  .attendanceTable td:nth-child(3) {
+    color: #94a3b8;
+  }
+
+  .attendanceTable tr {
+    background:
+      linear-gradient(
+        145deg,
+        #111827,
+        #0f172a
+      );
+
+    border-color: #263449;
+
+    box-shadow:
+      0 10px 25px rgba(0, 0, 0, 0.18);
+  }
+}

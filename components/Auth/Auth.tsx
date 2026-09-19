@@ -1,8 +1,7 @@
 "use client";
 
 import "./Auth.css";
-import Image from "next/image";
-import logo from "@/public/assets/logo1.png";
+
 import { useRouter } from "next/navigation";
 
 type AuthFormProps = {
@@ -25,13 +24,7 @@ export default function AuthForm({ title }: AuthFormProps) {
   return (
     <div className="authContainer">
       <div className="authWrapper">
-        <Image
-  src={logo}
-  alt="Logo"
-  width={120}
-  height={120}
-  priority
-/>
+     
 
         <h2>{title} Portal</h2>
 

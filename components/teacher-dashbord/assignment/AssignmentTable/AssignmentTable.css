@@ -1,0 +1,384 @@
+.assignmentTableWrapper{
+  background:linear-gradient(145deg,#ffffff,#fbfdff);
+  border-radius:20px;
+  border:1px solid #e5e7eb;
+  overflow:hidden;
+
+  box-shadow:
+    0 10px 30px rgba(15,23,42,.05),
+    0 2px 8px rgba(37,99,235,.03);
+
+  transition:.35s ease;
+
+  animation:tableFadeUp .7s ease both;
+}
+
+.assignmentTableWrapper:hover{
+  box-shadow:
+    0 18px 40px rgba(15,23,42,.08),
+    0 5px 15px rgba(37,99,235,.05);
+}
+
+
+/* =========================
+   TABLE
+========================= */
+
+.assignmentTable{
+  width:100%;
+}
+
+.assignmentTable table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+.assignmentTable th{
+  background:linear-gradient(180deg,#f8fafc,#f1f5f9);
+
+  color:#64748b;
+  padding:18px;
+
+  text-align:left;
+
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:.3px;
+
+  border-bottom:1px solid #e5e7eb;
+}
+
+.assignmentTable td{
+  padding:18px;
+
+  border-bottom:1px solid #eef2f7;
+
+  color:#1e293b;
+  font-size:14px;
+
+  transition:.3s ease;
+}
+
+.assignmentTable tbody tr{
+  transition:
+    background .3s ease,
+    transform .3s ease;
+}
+
+.assignmentTable tbody tr:hover{
+  background:#f8fbff;
+}
+
+.assignmentTable tbody tr:hover td{
+  color:#1d4ed8;
+}
+
+.assignmentTable tbody tr:last-child td{
+  border-bottom:none;
+}
+
+
+/* =========================
+   STATUS
+========================= */
+
+.status{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+
+  min-width:80px;
+
+  padding:7px 13px;
+
+  border-radius:30px;
+
+  font-size:12px;
+  font-weight:700;
+
+  border:1px solid transparent;
+
+  transition:.3s ease;
+}
+
+.status:hover{
+  transform:translateY(-2px);
+}
+
+
+/* APPROVED */
+
+.approved{
+  background:#ecfdf5;
+  color:#16a34a;
+  border-color:#bbf7d0;
+
+  box-shadow:0 3px 10px rgba(22,163,74,.08);
+}
+
+
+/* REJECTED */
+
+.rejected{
+  background:#fff1f2;
+  color:#dc2626;
+  border-color:#fecdd3;
+
+  box-shadow:0 3px 10px rgba(220,38,38,.08);
+}
+
+
+/* SUBMITTED */
+
+.submitted{
+  background:#fffbeb;
+  color:#d97706;
+  border-color:#fde68a;
+
+  box-shadow:0 3px 10px rgba(217,119,6,.08);
+}
+
+
+/* =========================
+   PAGINATION
+========================= */
+
+.pagination{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+
+  gap:15px;
+
+  padding:20px;
+
+  background:#fafcff;
+
+  border-top:1px solid #eef2f7;
+}
+
+.pagination button{
+  border:1px solid #2563eb;
+
+  background:linear-gradient(
+    135deg,
+    #2563eb,
+    #1d4ed8
+  );
+
+  color:#fff;
+
+  padding:10px 18px;
+
+  border-radius:11px;
+
+  cursor:pointer;
+
+  font-weight:600;
+
+  box-shadow:
+    0 5px 15px rgba(37,99,235,.18);
+
+  transition:.3s ease;
+}
+
+.pagination button:hover:not(:disabled){
+  transform:translateY(-2px);
+
+  box-shadow:
+    0 8px 20px rgba(37,99,235,.28);
+
+  background:linear-gradient(
+    135deg,
+    #1d4ed8,
+    #1e40af
+  );
+}
+
+.pagination button:active:not(:disabled){
+  transform:scale(.97);
+}
+
+.pagination button:disabled{
+  opacity:.45;
+  cursor:not-allowed;
+  box-shadow:none;
+}
+
+
+/* =========================
+   TABLE ANIMATION
+========================= */
+
+@keyframes tableFadeUp{
+
+  from{
+    opacity:0;
+    transform:translateY(20px);
+  }
+
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+
+}
+
+
+/* =========================
+   MOBILE
+   No Horizontal Scroll
+========================= */
+
+@media(max-width:768px){
+
+  .assignmentTableWrapper{
+    border-radius:16px;
+    overflow:hidden;
+  }
+
+  .assignmentTable table,
+  .assignmentTable tbody{
+    width:100%;
+  }
+
+  .assignmentTable thead{
+    display:none;
+  }
+
+  .assignmentTable tr{
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:0;
+
+    padding:15px;
+
+    border-bottom:1px solid #e5e7eb;
+  }
+
+  .assignmentTable tr:last-child{
+    border-bottom:none;
+  }
+
+  .assignmentTable td{
+    min-width:0;
+
+    padding:9px 8px;
+
+    border:none;
+
+    overflow:hidden;
+    text-overflow:ellipsis;
+  }
+
+  /* ID + NAME */
+
+  .assignmentTable td:nth-child(1){
+    grid-column:1;
+    grid-row:1;
+
+    font-weight:700;
+    color:#2563eb;
+  }
+
+  .assignmentTable td:nth-child(2){
+    grid-column:2;
+    grid-row:1;
+
+    font-weight:600;
+    color:#111827;
+  }
+
+  /* ASSIGNMENT + STATUS */
+
+  .assignmentTable td:nth-child(3){
+    grid-column:1;
+    grid-row:2;
+
+    color:#64748b;
+  }
+
+  .assignmentTable td:nth-child(4){
+    grid-column:2;
+    grid-row:2;
+
+    display:flex;
+    justify-content:flex-start;
+    align-items:center;
+  }
+
+  .status{
+    min-width:72px;
+    padding:6px 10px;
+    font-size:11px;
+  }
+
+  .pagination{
+    padding:15px;
+
+    gap:10px;
+  }
+
+  .pagination button{
+    padding:9px 14px;
+    font-size:13px;
+  }
+
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media(max-width:480px){
+
+  .assignmentTableWrapper{
+    border-radius:14px;
+  }
+
+  .assignmentTable tr{
+    padding:12px;
+  }
+
+  .assignmentTable td{
+    padding:7px 5px;
+    font-size:13px;
+  }
+
+  .status{
+    min-width:65px;
+    padding:5px 8px;
+    font-size:10px;
+  }
+
+  .pagination{
+    gap:8px;
+  }
+
+  .pagination button{
+    padding:8px 12px;
+    border-radius:9px;
+  }
+
+}
+
+
+/* =========================
+   VERY SMALL SCREEN
+========================= */
+
+@media(max-width:350px){
+
+  .assignmentTable td{
+    font-size:12px;
+  }
+
+  .status{
+    min-width:auto;
+    padding:5px 7px;
+  }
+
+}
