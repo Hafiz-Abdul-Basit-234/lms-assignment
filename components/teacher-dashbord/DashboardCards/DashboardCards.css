@@ -1,0 +1,41 @@
+.teacherCards{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+
+.teacherCard{
+  background:#fff;
+  padding:25px;
+  border-radius:18px;
+  border:1px solid #e5e7eb;
+  box-shadow:0 8px 20px rgba(0,0,0,.05);
+  transition:.3s;
+}
+
+.teacherCard:hover{
+  transform:translateY(-5px);
+}
+
+.teacherCard span{
+  color:#6b7280;
+  font-size:14px;
+}
+
+.teacherCard h2{
+  margin-top:10px;
+  color:#2563eb;
+  font-size:32px;
+}
+
+@media(max-width:992px){
+  .teacherCards{
+    grid-template-columns:repeat(2,1fr);
+  }
+}
+
+@media(max-width:580px){
+  .teacherCards{
+    grid-template-columns:1fr;
+  }
+}

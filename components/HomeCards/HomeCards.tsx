@@ -41,11 +41,12 @@ export default function HomeCards() {
     <div className="homePage">
       <section className="heroSection">
         <Image
-          src={logo}
-          alt="LMS Logo"
-          className="logo"
-          priority
-        />
+  src={logo}
+  alt="Logo"
+  width={120}
+  height={120}
+  priority
+/>
 
         <h1>Learning Management System</h1>
 

@@ -26,10 +26,12 @@ export default function AuthForm({ title }: AuthFormProps) {
     <div className="authContainer">
       <div className="authWrapper">
         <Image
-          src={logo}
-          alt="Logo"
-          className="authLogo"
-        />
+  src={logo}
+  alt="Logo"
+  width={120}
+  height={120}
+  priority
+/>
 
         <h2>{title} Portal</h2>
 
