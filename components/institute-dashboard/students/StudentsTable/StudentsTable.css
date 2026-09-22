@@ -1,0 +1,1161 @@
+.studentsPage {
+  width: 100%;
+  min-width: 0;
+  padding: 28px 0 40px;
+  color: #0f172a;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.studentsHeader {
+  margin-bottom: 26px;
+}
+
+.studentsHeading {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.headingIcon {
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  color: #ffffff;
+  font-size: 23px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #4f46e5
+    );
+
+  border-radius: 16px;
+
+  box-shadow:
+    0 10px 24px rgba(37, 99, 235, 0.20);
+}
+
+.eyebrow {
+  margin: 0 0 3px;
+
+  color: #64748b;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+}
+
+.studentsHeading h1 {
+  margin: 0;
+
+  color: #0f172a;
+
+  font-size: clamp(25px, 3vw, 32px);
+  line-height: 1.2;
+
+  font-weight: 800;
+
+  letter-spacing: -0.8px;
+}
+
+.headingDescription {
+  margin: 5px 0 0;
+
+  color: #64748b;
+
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+
+/* =========================================================
+   STATS
+   ========================================================= */
+
+.studentStats {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 15px;
+
+  margin-bottom: 22px;
+}
+
+.statCard {
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+
+  min-width: 0;
+
+  padding: 17px 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #ffffff,
+      #f8fafc
+    );
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 17px;
+
+  box-shadow:
+    0 5px 18px rgba(15, 23, 42, 0.045);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.statCard:hover {
+  transform: translateY(-2px);
+
+  border-color: #dbeafe;
+
+  box-shadow:
+    0 10px 26px rgba(15, 23, 42, 0.07);
+}
+
+.statIcon {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 13px;
+
+  font-size: 19px;
+}
+
+.statIcon.blue {
+  color: #2563eb;
+  background: #eff6ff;
+}
+
+.statIcon.green {
+  color: #16a34a;
+  background: #f0fdf4;
+}
+
+.statIcon.purple {
+  color: #7c3aed;
+  background: #f5f3ff;
+}
+
+.statCard span {
+  display: block;
+
+  margin-bottom: 3px;
+
+  color: #64748b;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.statCard strong {
+  display: block;
+
+  color: #0f172a;
+
+  font-size: 22px;
+  line-height: 1.1;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   MAIN CARD
+   ========================================================= */
+
+.tableCard {
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 12px 35px rgba(15, 23, 42, 0.055),
+    0 3px 10px rgba(15, 23, 42, 0.025);
+}
+
+
+/* =========================================================
+   TOOLBAR
+   ========================================================= */
+
+.tableToolbar {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 20px 22px;
+
+  border-bottom: 1px solid #eef2f7;
+
+  background:
+    linear-gradient(
+      180deg,
+      #ffffff,
+      #fbfdff
+    );
+}
+
+.toolbarTitle h2 {
+  margin: 0;
+
+  color: #0f172a;
+
+  font-size: 17px;
+  font-weight: 800;
+
+  letter-spacing: -0.2px;
+}
+
+.toolbarTitle p {
+  margin: 4px 0 0;
+
+  color: #94a3b8;
+
+  font-size: 12px;
+}
+
+.tableFilters {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+}
+
+
+/* =========================================================
+   SEARCH
+   ========================================================= */
+
+.searchBox,
+.selectBox {
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+
+  border: 1px solid #e2e8f0;
+
+  background: #f8fafc;
+
+  border-radius: 11px;
+
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.searchBox {
+  width: 220px;
+
+  padding: 0 12px;
+
+  gap: 8px;
+}
+
+.searchBox svg,
+.selectBox > svg:first-child {
+  flex-shrink: 0;
+
+  color: #94a3b8;
+
+  font-size: 16px;
+}
+
+.searchBox input {
+  width: 100%;
+
+  border: 0;
+  outline: 0;
+
+  background: transparent;
+
+  color: #334155;
+
+  font-size: 12px;
+}
+
+.searchBox input::placeholder {
+  color: #94a3b8;
+}
+
+.searchBox:focus-within,
+.selectBox:focus-within {
+  background: #ffffff;
+
+  border-color: #93c5fd;
+
+  box-shadow:
+    0 0 0 3px rgba(59, 130, 246, 0.08);
+}
+
+
+/* =========================================================
+   SELECT
+   ========================================================= */
+
+.selectBox {
+  position: relative;
+
+  min-width: 145px;
+
+  padding: 0 10px;
+
+  gap: 7px;
+}
+
+.selectBox select {
+  width: 100%;
+
+  appearance: none;
+
+  border: 0;
+  outline: 0;
+
+  background: transparent;
+
+  color: #475569;
+
+  cursor: pointer;
+
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.selectBox > svg:last-child {
+  pointer-events: none;
+
+  flex-shrink: 0;
+
+  color: #94a3b8;
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+
+.assignmentTable {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.assignmentTable table {
+  width: 100%;
+  min-width: 650px;
+
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.assignmentTable thead {
+  background:
+    linear-gradient(
+      180deg,
+      #f8fafc,
+      #f1f5f9
+    );
+}
+
+.assignmentTable th {
+  padding: 14px 20px;
+
+  color: #64748b;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  line-height: 1.4;
+
+  letter-spacing: 0.7px;
+
+  text-transform: uppercase;
+
+  text-align: left;
+
+  white-space: nowrap;
+
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.assignmentTable th:first-child {
+  padding-left: 24px;
+  width: 90px;
+}
+
+.assignmentTable th span {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 6px;
+}
+
+.assignmentTable th svg {
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+.assignmentTable td {
+  padding: 16px 20px;
+
+  color: #334155;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  border-bottom: 1px solid #f1f5f9;
+
+  vertical-align: middle;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease;
+}
+
+.assignmentTable td:first-child {
+  padding-left: 24px;
+}
+
+.assignmentTable tbody tr {
+  transition:
+    background 0.2s ease;
+}
+
+.assignmentTable tbody tr:hover {
+  background:
+    linear-gradient(
+      90deg,
+      #f8fbff,
+      #ffffff
+    );
+}
+
+.assignmentTable tbody tr:hover td {
+  color: #0f172a;
+}
+
+.assignmentTable tbody tr:last-child td {
+  border-bottom: none;
+}
+
+
+/* =========================================================
+   STUDENT ID
+   ========================================================= */
+
+.studentId {
+  color: #94a3b8;
+
+  font-size: 11px;
+
+  font-weight: 800;
+
+  letter-spacing: 0.3px;
+}
+
+
+/* =========================================================
+   STUDENT NAME
+   ========================================================= */
+
+.studentNameCell {
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+}
+
+.studentAvatar {
+  width: 37px;
+  height: 37px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  color: #2563eb;
+
+  background:
+    linear-gradient(
+      135deg,
+      #eff6ff,
+      #e0e7ff
+    );
+
+  border: 1px solid #dbeafe;
+
+  border-radius: 11px;
+
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.studentNameCell strong {
+  display: block;
+
+  color: #0f172a;
+
+  font-size: 13px;
+  font-weight: 750;
+}
+
+.studentNameCell small {
+  display: block;
+
+  margin-top: 2px;
+
+  color: #94a3b8;
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   COURSE BADGE
+   ========================================================= */
+
+.courseBadge {
+  display: inline-flex;
+  align-items: center;
+
+  padding: 6px 10px;
+
+  color: #475569;
+
+  background: #f8fafc;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 8px;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.active,
+.inactive {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-width: 76px;
+
+  padding: 6px 10px;
+
+  border-radius: 999px;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  line-height: 1;
+
+  white-space: nowrap;
+}
+
+.active {
+  color: #15803d;
+
+  background:
+    linear-gradient(
+      135deg,
+      #dcfce7,
+      #f0fdf4
+    );
+
+  border: 1px solid #bbf7d0;
+}
+
+.inactive {
+  color: #dc2626;
+
+  background:
+    linear-gradient(
+      135deg,
+      #fee2e2,
+      #fff1f2
+    );
+
+  border: 1px solid #fecaca;
+}
+
+.active::before,
+.inactive::before {
+  content: "";
+
+  width: 5px;
+  height: 5px;
+
+  margin-right: 6px;
+
+  border-radius: 50%;
+}
+
+.active::before {
+  background: #22c55e;
+
+  box-shadow:
+    0 0 0 3px rgba(34, 197, 94, 0.1);
+}
+
+.inactive::before {
+  background: #ef4444;
+
+  box-shadow:
+    0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+
+/* =========================================================
+   EMPTY STATE
+   ========================================================= */
+
+.emptyState {
+  min-height: 260px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+
+  text-align: center;
+}
+
+.emptyIcon {
+  width: 48px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 12px;
+
+  color: #64748b;
+
+  background: #f1f5f9;
+
+  border-radius: 14px;
+
+  font-size: 19px;
+}
+
+.emptyState h3 {
+  margin: 0;
+
+  color: #334155;
+
+  font-size: 15px;
+}
+
+.emptyState p {
+  margin: 5px 0 0;
+
+  color: #94a3b8;
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   MOBILE CARDS
+   ========================================================= */
+
+.mobileStudents {
+  display: none;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.tableFooter {
+  min-height: 67px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 15px;
+
+  padding: 12px 22px;
+
+  border-top: 1px solid #eef2f7;
+
+  background: #ffffff;
+}
+
+.paginationInfo {
+  color: #94a3b8;
+
+  font-size: 11px;
+}
+
+.paginationInfo strong {
+  color: #475569;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1000px) {
+
+  .tableToolbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .tableFilters {
+    width: 100%;
+  }
+
+  .searchBox {
+    flex: 1;
+  }
+
+  .selectBox {
+    min-width: 150px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+  .studentsPage {
+    padding-top: 20px;
+  }
+
+  .studentsHeader {
+    margin-bottom: 20px;
+  }
+
+  .headingIcon {
+    width: 46px;
+    height: 46px;
+
+    border-radius: 14px;
+
+    font-size: 20px;
+  }
+
+  .headingDescription {
+    font-size: 12px;
+  }
+
+
+  /* Stats */
+
+  .studentStats {
+    grid-template-columns: 1fr;
+
+    gap: 9px;
+
+    margin-bottom: 17px;
+  }
+
+  .statCard {
+    padding: 13px 14px;
+  }
+
+  .statIcon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .statCard strong {
+    font-size: 19px;
+  }
+
+
+  /* Main card */
+
+  .tableCard {
+    border-radius: 18px;
+  }
+
+
+  /* Toolbar */
+
+  .tableToolbar {
+    padding: 17px 15px;
+
+    gap: 14px;
+  }
+
+  .tableFilters {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 8px;
+  }
+
+  .searchBox {
+    width: auto;
+
+    grid-column: 1 / -1;
+  }
+
+  .selectBox {
+    width: 100%;
+    min-width: 0;
+  }
+
+
+  /* Desktop table */
+
+  .assignmentTable {
+    display: none;
+  }
+
+
+  /* Mobile cards */
+
+  .mobileStudents {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    padding: 12px;
+  }
+
+  .studentCard {
+    padding: 15px;
+
+    background:
+      linear-gradient(
+        145deg,
+        #ffffff,
+        #f8fafc
+      );
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 15px;
+
+    box-shadow:
+      0 5px 16px rgba(15, 23, 42, 0.04);
+
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .studentCard:active {
+    transform: scale(0.99);
+  }
+
+
+  .studentTop {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 10px;
+
+    padding-bottom: 13px;
+
+    margin-bottom: 12px;
+
+    border-bottom: 1px solid #eef2f7;
+  }
+
+  .studentIdentity {
+    display: flex;
+    align-items: center;
+
+    min-width: 0;
+
+    gap: 10px;
+  }
+
+  .studentIdentity .studentAvatar {
+    width: 39px;
+    height: 39px;
+  }
+
+  .studentIdentity h3 {
+    margin: 0;
+
+    overflow: hidden;
+
+    color: #0f172a;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .studentIdentity span {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #94a3b8;
+
+    font-size: 10px;
+  }
+
+  .studentTop .active,
+  .studentTop .inactive {
+    flex-shrink: 0;
+
+    min-width: 65px;
+
+    padding: 6px 8px;
+
+    font-size: 9px;
+  }
+
+
+  .studentInfo {
+    display: grid;
+
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 8px;
+  }
+
+  .studentInfo > div {
+    min-width: 0;
+
+    padding: 9px 10px;
+
+    background: #f8fafc;
+
+    border: 1px solid #f1f5f9;
+
+    border-radius: 9px;
+  }
+
+  .studentInfo span {
+    display: block;
+
+    margin-bottom: 3px;
+
+    color: #94a3b8;
+
+    font-size: 9px;
+    font-weight: 800;
+
+    letter-spacing: 0.4px;
+
+    text-transform: uppercase;
+  }
+
+  .studentInfo strong {
+    display: block;
+
+    overflow: hidden;
+
+    color: #334155;
+
+    font-size: 11px;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+
+  /* Footer */
+
+  .tableFooter {
+    flex-direction: column;
+
+    align-items: stretch;
+
+    padding: 12px 14px;
+
+    gap: 9px;
+  }
+
+  .paginationInfo {
+    text-align: center;
+  }
+
+  .tableFooter > *:last-child {
+    align-self: center;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+
+  .studentsHeading {
+    align-items: flex-start;
+  }
+
+  .headingIcon {
+    width: 42px;
+    height: 42px;
+
+    font-size: 18px;
+  }
+
+  .eyebrow {
+    font-size: 9px;
+  }
+
+  .studentsHeading h1 {
+    font-size: 24px;
+  }
+
+  .headingDescription {
+    font-size: 11px;
+  }
+
+  .tableFilters {
+    grid-template-columns: 1fr;
+  }
+
+  .searchBox {
+    grid-column: auto;
+  }
+
+  .tableToolbar {
+    padding: 15px 13px;
+  }
+
+  .mobileStudents {
+    padding: 9px;
+  }
+
+  .studentCard {
+    padding: 13px;
+  }
+
+  .studentInfo {
+    grid-template-columns: 1fr;
+  }
+
+  .studentInfo > div {
+    padding: 8px 9px;
+  }
+
+  .studentTop .active,
+  .studentTop .inactive {
+    min-width: 62px;
+  }
+}
+
+
+/* =========================================================
+   EXTRA SMALL
+   ========================================================= */
+
+@media (max-width: 360px) {
+
+  .studentsPage {
+    padding-top: 14px;
+  }
+
+  .studentsHeading {
+    gap: 10px;
+  }
+
+  .headingIcon {
+    width: 38px;
+    height: 38px;
+  }
+
+  .studentsHeading h1 {
+    font-size: 21px;
+  }
+
+  .statCard {
+    padding: 11px;
+  }
+
+  .studentCard {
+    padding: 11px;
+  }
+
+  .studentIdentity h3 {
+    font-size: 13px;
+  }
+}
+
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .statCard,
+  .studentCard,
+  .assignmentTable tbody tr,
+  .searchBox,
+  .selectBox {
+    transition: none;
+  }
+}
