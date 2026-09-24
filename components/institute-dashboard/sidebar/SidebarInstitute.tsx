@@ -10,7 +10,7 @@ import {
   FiGrid,
   FiUsers,
   FiUserCheck,
-  FiHome,
+  
   FiMenu,
 } from "react-icons/fi";
 
@@ -73,14 +73,7 @@ export default function SidebarInstitute({
             <span>Trainers</span>
           </Link>
 
-          <Link
-            href="/institute-dashboard/campus"
-            className="menuItem"
-          >
-            <FiHome />
-            <span>Campus</span>
-          </Link>
-
+         
         </nav>
 
         <div className="sidebarBottom">
