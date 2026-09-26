@@ -65,20 +65,20 @@ export default function StudentsTable() {
     (student) => student.status === "Active"
   ).length;
 
-  const handleSearch = (value) => {
-    setSearch(value);
-    setPage(1);
-  };
+  const handleSearch = (value: string) => {
+  setSearch(value);
+  setPage(1);
+};
 
-  const handleCourse = (value) => {
-    setCourse(value);
-    setPage(1);
-  };
+const handleCourse = (value: string) => {
+  setCourse(value);
+  setPage(1);
+};
 
-  const handleStatus = (value) => {
-    setStatus(value);
-    setPage(1);
-  };
+const handleStatus = (value: string) => {
+  setStatus(value);
+  setPage(1);
+};
 
   return (
     <section className="studentsPage">
