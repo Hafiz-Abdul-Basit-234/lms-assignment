@@ -40,11 +40,13 @@ export default function SidebarInstitute({
         }`}
       >
         <div className="sidebarTop">
+         <Link href={'/'}>
           <Image
             src={logo}
             alt="Logo"
             className="sidebarLogo"
           />
+         </Link>
         </div>
 
         <nav className="sidebarMenu">

@@ -37,11 +37,13 @@ export default function SidebarTeacher({
         className={`sidebar ${!open ? "hide" : ""}`}
       >
         <div className="sidebarTop">
+           <Link href={'/'}>
           <Image
             src={logo}
-            alt="logo"
+            alt="Logo"
             className="sidebarLogo"
           />
+         </Link>
         </div>
 
         <nav className="sidebarMenu">
